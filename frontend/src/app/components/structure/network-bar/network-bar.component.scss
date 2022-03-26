@@ -1,0 +1,39 @@
+:host{
+  position: fixed;
+  bottom: 0;
+  left: 50px;
+  height: 300px;
+
+  .container{
+
+    ul{
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      padding: 0;
+      gap: 24px;
+
+      li{
+
+        a{
+
+          i{
+            font-size: 1.3em;
+          }
+        }
+      }
+    }
+  }
+
+  &:after{
+    position: absolute;
+    width: 2px;
+    height: calc(100% - 60px - 2.6em);
+    background: var(--grey);
+    content: '';
+    bottom: 0;
+    left: calc(50% - 1px);
+
+  }
+}
