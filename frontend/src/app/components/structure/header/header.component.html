@@ -1,14 +1,15 @@
-<header>
+<header [ngClass]="{'sticky': isSticky, 'visible': isVisible}">
 
   <div class="logo"></div>
 
   <nav>
     <ul>
-      <li><a><i class="fas fa-id-card"></i>A propos</a></li>
+      <li><a href="#review"><i class="fas fa-id-card"></i>À propos</a></li>
       <li><a><i class="fas fa-briefcase"></i>Expérience</a></li>
       <li><a><i class="fas fa-laptop-code"></i>Projets</a></li>
       <li><a><i class="fas fa-envelope"></i>Contact</a></li>
     </ul>
     <button>Télécharger CV</button>
   </nav>
+
 </header>

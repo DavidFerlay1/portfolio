@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding, HostListener, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  @HostListener('window:scroll', []) onScroll() {
+    this.isSticky = window.scrollY === 0;
+    this.isVisible = this.lastScrollY >= window.scrollY;
+    this.lastScrollY = window.scrollY;
+  }
+
   constructor() { }
+
+  isSticky: boolean = true;
+  isVisible: boolean = true;
+
+  private lastScrollY = window.scrollY;
 
   ngOnInit(): void {
   }

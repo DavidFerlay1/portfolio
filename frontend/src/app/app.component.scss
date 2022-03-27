@@ -1,0 +1,53 @@
+main{
+  margin-top: var(--header-height);
+  padding: 25px 120px;
+
+  section{
+    height: calc(100vh - 126px);
+    box-sizing: border-box;
+
+    &:not(:first-child){
+      height: 100vh;
+    }
+  }
+
+  h1{
+    font-size: 4.5em;
+    margin: -5px;
+    padding: 3px 0 0;
+    //font-family: "Roboto Condensed";
+    font-weight: 700;
+    letter-spacing: 3px;
+  }
+
+  p{
+    width: 100%;
+    padding: 0;
+    overflow: scroll;
+  }
+}
+
+:host ::ng-deep .main_title{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 15%;
+
+  app-fade-in-item{
+    &:first-child{
+      color: var(--white);
+    }
+
+    button{
+      margin-top: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 770px){
+
+  main{
+    padding: 10px 5%;
+  }
+
+}

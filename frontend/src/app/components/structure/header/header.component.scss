@@ -1,18 +1,30 @@
 header{
 
-  --header-height: 80px;
-
   height: var(--header-height);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 50px;
-  //box-shadow: 0 10px 30px -10px var(--navy-shadow);
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  transition: all .3s ease-out;
+  backdrop-filter: blur(1.5em);
+  z-index: 100;
+
+  &:not(.visible){
+    transform: translateY(-100%);
+  }
+
+  &:not(.sticky){
+    box-shadow: 0 10px 30px -10px var(--navy-shadow);
+  }
 
   .logo{
-    height: 25px;
+    height: 30px;
     border: 3px solid var(--green);
-    width: 25px;
+    width: 30px;
     border-radius: 50%;
     position: relative;
     color: var(--green);
@@ -38,22 +50,23 @@ header{
 
       li{
         a{
-          padding: 0 15px;
+          padding: 10px 15px;
           cursor: pointer;
           transition: all .2s;
+          font-size: .9em;
           text-align: center;
 
 
           i{
             margin-right: 6px;
-            font-size: .8em;
+            font-size: .9em;
             color: var(--green);
             position: relative;
-            top: -1px;
+            //top: -1px;
           }
 
           &:hover{
-            color: var(--white);
+            color: var(--green);
           }
         }
       }
@@ -63,8 +76,10 @@ header{
 
 }
 
-@media screen and (max-width: 765px){
+@media screen and (max-width: 770px){
   header{
+
+    padding: 0 5%;
 
       nav{
         position: fixed;
