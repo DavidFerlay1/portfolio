@@ -12,14 +12,19 @@ export class FadeInBlockComponent implements AfterContentInit {
 
   @Input() animationDelay: number = 0;
   @Input() triggerDelay: number = 0;
+  @Input() translateY: string = "0";
+  @Input() animationDurationPerChild: string = "0.3s";
 
   constructor() { }
 
   ngAfterContentInit(): void {
     this.children?.forEach((child, index) => {
-      child.setDelay(this.triggerDelay * index)
+      child.delay = this.animationDelay * index;
+      child.translateY = this.translateY;
+      child.animationDuration = this.animationDurationPerChild;
     })
-    this.children?.forEach(child => child.trigger())
+    setTimeout(() => this.children?.forEach(child => child.trigger()), this.triggerDelay)
+
   }
 
 }

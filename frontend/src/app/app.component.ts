@@ -7,7 +7,9 @@ import { Component, HostListener } from '@angular/core';
 })
 export class AppComponent {
   title = 'portfolio';
-  // @HostListener('window.onbeforeunload', []) onReload() {
-  //   window.scrollTo(0,0);
-  // }
+
+  onActivate(){
+    window.scrollTo(0, 0);
+    console.log("activate")
+  }
 }

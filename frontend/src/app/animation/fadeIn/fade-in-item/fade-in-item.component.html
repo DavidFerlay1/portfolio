@@ -1,4 +1,4 @@
-<div [@openClose]="triggered ? 'open' : 'closed'">
+<div [@openClose]="{value: triggered ? 'open' : 'closed', params: {translateY: translateY, animationDuration: animationDuration}}">
   <ng-content ></ng-content>
 </div>
 

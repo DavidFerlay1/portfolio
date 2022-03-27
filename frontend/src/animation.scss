@@ -1,0 +1,52 @@
+.fadeIn{
+  transition: all .5s;
+  opacity: 0;
+
+  &.triggered{
+    opacity: 1;
+  }
+}
+
+.fadeInTranslate{
+  transition: all .5s ease-out;
+  opacity: 0;
+
+  &.horizontal{
+    transform: translateX(80%);
+
+    &.high{
+      transform: translateX(300%);
+    }
+
+    &.triggered{
+      transition: all .5s ease-out;
+      opacity: 1;
+      transform: translateX(50%);
+    }
+  }
+
+  &:not(.horizontal){
+
+    transform: translateY(50px);
+
+    &.high{
+
+      transform: translateY(300%);
+    }
+
+    &.triggered{
+      transition: all .5s ease-out;
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+.scaleIn{
+  transform: scale(0);
+  transition: all 1s;
+
+  &.triggered{
+    transform: scale(1);
+  }
+}

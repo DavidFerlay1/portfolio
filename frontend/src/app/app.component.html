@@ -1,23 +1,39 @@
 <app-header></app-header>
 
-<app-network-bar></app-network-bar>
-
 <main>
 
   <section id="home">
-    <app-fade-in-block [triggerDelay]="50" [animationDelay]="5000" class="main_title">
-      <app-fade-in-item><h1>David Ferlay</h1></app-fade-in-item>
-      <app-fade-in-item><h1>Développeur web</h1></app-fade-in-item>
-      <app-fade-in-item><p style="width: 500px; font-size: .9em; margin-top: 30px; overflow: auto; box-sizing: border-box;">LOREM IPSUM LOREM IPSUM LOREM IPSUM LOREM IPSUM LOREM IPSUM LOREM IPSUM LOREM IPSUM
 
-      </p></app-fade-in-item>
-      <app-fade-in-item><button class="large">Commencer la visite</button></app-fade-in-item>
-    </app-fade-in-block>
+    <div class="main_title" animationChain [chainDelay]="120" [delay]="800">
+      <h1 class="fadeInTranslate" animationLink>David Ferlay</h1>
+      <h1 class="fadeInTranslate" animationLink>Développeur web</h1>
+      <p style="width: 500px; font-size: .9em;  overflow: auto; box-sizing: border-box;" class="fadeInTranslate" animationLink>
+        Text
+      </p>
+      <button class="large fadeInTranslate" animationLink>Commencer la visite</button>
+    </div>
+
   </section>
 
-  <section id="review"></section>
+  <section id="review">
+    <div animationChain [chainDelay]="200">
+      <h2 class="fadeInTranslate hight horizontal" animationLink>A propos</h2>
+      <h2 class="fadeInTranslate hight horizontal" animationLink>A propos</h2>
+      <h2 class="fadeInTranslate hight horizontal" animationLink>A propos</h2>
+      <h2 class="fadeInTranslate hight horizontal" animationLink>A propos</h2>
+      <h2 class="fadeInTranslate hight horizontal" animationLink>A propos</h2>
+      <h2 class="fadeInTranslate hight horizontal" animationLink>A propos</h2>
+      <h2 class="fadeInTranslate hight horizontal" animationLink>A propos</h2>
+      <h2 class="fadeInTranslate hight horizontal" animationLink>A propos</h2>
+    </div>
+
+  </section>
+
+  <div animationChain [delay]="1500">
+    <app-network-bar class="fadeIn" animationLink ></app-network-bar>
+  </div>
+
+
+  <router-outlet (activate)="onActivate()"></router-outlet>
 
 </main>
-
-
-<router-outlet></router-outlet>

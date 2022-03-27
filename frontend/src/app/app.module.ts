@@ -8,6 +8,8 @@ import { HeaderComponent } from './components/structure/header/header.component'
 import { NetworkBarComponent } from './components/structure/network-bar/network-bar.component';
 import { FadeInBlockComponent } from './animation/fadeIn/fade-in-block/fade-in-block.component';
 import { FadeInItemComponent } from './animation/fadeIn/fade-in-item/fade-in-item.component';
+import { AnimationLinkDirective } from './animation/animation-link.directive';
+import { AnimatedChainDirective } from './animation/animation-chain.directive';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { FadeInItemComponent } from './animation/fadeIn/fade-in-item/fade-in-ite
     NetworkBarComponent,
     FadeInBlockComponent,
     FadeInItemComponent,
+    AnimationLinkDirective,
+    AnimatedChainDirective,
   ],
   imports: [
     BrowserModule,
@@ -25,4 +29,5 @@ import { FadeInItemComponent } from './animation/fadeIn/fade-in-item/fade-in-ite
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

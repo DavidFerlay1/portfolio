@@ -21,13 +21,13 @@ import {
       })),
       state('closed', style({
         opacity: 0,
-        transform: "translateY(20%)"
-      })),
+        transform: "translateY({{translateY}})"
+      }), {params: {translateY: '{{translateY}}'}}),
       transition('open => closed', [
-        animate('.3s cubic-bezier(.54,-0.09,.03,.83)')
+        animate('{{animationDuration}} cubic-bezier(.54,-0.09,.03,.83)')
       ]),
       transition('closed => open', [
-        animate('0.3s cubic-bezier(.54,-0.09,.03,.83)')
+        animate('{{animationDuration}} cubic-bezier(.54,-0.09,.03,.83)')
       ]),
     ]),
   ]
@@ -35,7 +35,9 @@ import {
 export class FadeInItemComponent {
 
   delay: number = 0;
+  translateY: string = "0";
   triggered: boolean = false;
+  animationDuration: string = "0.3s";
 
   constructor() {}
 
@@ -45,6 +47,7 @@ export class FadeInItemComponent {
 
   setDelay(delay: number){
     this.delay = delay;
+    console.log(this.translateY)
   }
 
 }

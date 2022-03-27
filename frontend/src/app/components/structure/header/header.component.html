@@ -1,15 +1,16 @@
-<header [ngClass]="{'sticky': isSticky, 'visible': isVisible}">
+<header [ngClass]="{'sticky': isSticky, 'visible': isVisible}" class="sticky visible">
 
-  <div class="logo"></div>
+  <div class="logo" ></div>
 
-  <nav>
-    <ul>
-      <li><a href="#review"><i class="fas fa-id-card"></i>À propos</a></li>
-      <li><a><i class="fas fa-briefcase"></i>Expérience</a></li>
-      <li><a><i class="fas fa-laptop-code"></i>Projets</a></li>
-      <li><a><i class="fas fa-envelope"></i>Contact</a></li>
+  <nav animationChain [chainDelay]="480">
+    <ul animationChain [chainDelay]="120">
+        <li class="fadeIn" animationLink><a href="#review"><i class="fas fa-id-card"></i>À propos</a></li>
+        <li class="fadeIn" animationLink><a><i class="fas fa-briefcase"></i>Expérience</a></li>
+        <li class="fadeIn" animationLink><a><i class="fas fa-laptop-code"></i>Projets</a></li>
+        <li class="fadeIn" animationLink><a><i class="fas fa-envelope"></i>Contact</a></li>
     </ul>
-    <button>Télécharger CV</button>
+
+    <button class="fadeIn" animationLink>Télécharger CV</button>
   </nav>
 
 </header>
