@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FadeInItemComponent } from './fade-in-item.component';
+import { ProgressBarComponent } from './progress-bar.component';
 
-describe('FadeInItemComponent', () => {
-  let component: FadeInItemComponent;
-  let fixture: ComponentFixture<FadeInItemComponent>;
+describe('ProgressBarComponent', () => {
+  let component: ProgressBarComponent;
+  let fixture: ComponentFixture<ProgressBarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FadeInItemComponent ]
+      declarations: [ ProgressBarComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FadeInItemComponent);
+    fixture = TestBed.createComponent(ProgressBarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

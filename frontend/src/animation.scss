@@ -1,5 +1,4 @@
 .fadeIn{
-  transition: all .5s;
   opacity: 0;
 
   &.triggered{
@@ -7,46 +6,27 @@
   }
 }
 
-.fadeInTranslate{
-  transition: all .5s ease-out;
-  opacity: 0;
+.translateY{
+  transform: translateY(3vh);
 
-  &.horizontal{
-    transform: translateX(80%);
-
-    &.high{
-      transform: translateX(300%);
-    }
-
-    &.triggered{
-      transition: all .5s ease-out;
-      opacity: 1;
-      transform: translateX(50%);
-    }
-  }
-
-  &:not(.horizontal){
-
-    transform: translateY(50px);
-
-    &.high{
-
-      transform: translateY(300%);
-    }
-
-    &.triggered{
-      transition: all .5s ease-out;
-      opacity: 1;
-      transform: translateY(0);
-    }
+  &.triggered{
+    transform: translateY(0);
   }
 }
 
-.scaleIn{
-  transform: scale(0);
-  transition: all 1s;
+.translateX{
+  transform: translateX(3vw);
 
   &.triggered{
-    transform: scale(1);
+    transform: translateY(0);
+  }
+}
+
+.deepFade{
+  opacity: 0;
+
+  &.triggered{
+
+    opacity: 1 !important;
   }
 }

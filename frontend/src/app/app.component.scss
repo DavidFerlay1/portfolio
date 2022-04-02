@@ -6,14 +6,26 @@ main{
   section{
     height: 100vh;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
 
     &:first-child{
       height: calc(100vh - 80px);
     }
+
+    &:not(:first-child){
+      padding-top: 80px;
+    }
+  }
+
+  .section-block{
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
   }
 
   h1{
-    font-size: 4.5em;
+    font-size: 5vw;
     margin: -5px;
     padding: 3px 0 0;
     //font-family: "Roboto Condensed";
@@ -33,16 +45,25 @@ main{
     position: relative;
     display: flex;
     align-items: center;
-    width: 500px;
+    width: fit-content;
+    font-size: 5vh;
+    padding: 0;
+    margin: 0;
+    height: 10vh;
+    position: relative;
 
-    &::after{
-      background: var(--grey);
-      height: 1px;
-      width: 200px;
-      margin-left: 5px;
-      content: '';
-      display: block;
+    i{
+      color: var(--green);
+      margin-right: 15px;
+      font-size: .7em;;
     }
+  }
+
+  h3{
+    font-family: "Roboto Condensed";
+    font-size: 2em;
+    padding: 0;
+    margin: 0;
   }
 }
 
@@ -58,6 +79,44 @@ main{
 
   button{
     margin-top: 20px;
+  }
+}
+
+
+.grid{
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr;
+  padding: 50px;
+  box-sizing: border-box;
+  height: 100%;
+  gap: 50px;
+}
+
+.skill-list{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+
+  li{
+
+    font-size: 1.3em;
+    color: var(--white);
+    padding: 3px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    i{
+      color: var(--green);
+      margin-right:  10px;
+
+      span{
+        display: block;
+        margin-left: 50px;
+      }
+    }
   }
 }
 

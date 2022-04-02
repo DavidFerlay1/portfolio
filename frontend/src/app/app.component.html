@@ -4,34 +4,94 @@
 
   <section id="home">
 
-    <div class="main_title" animationChain [chainDelay]="120" [delay]="800">
-      <h1 class="fadeInTranslate" animationLink>David Ferlay</h1>
-      <h1 class="fadeInTranslate" animationLink>Développeur web</h1>
-      <p style="width: 500px; font-size: .9em;  overflow: auto; box-sizing: border-box;" class="fadeInTranslate" animationLink>
+    <div class="main_title" scrollAnimatedBlock [chainDelay]="120" [childrenTransitionDelay]="400" [delay]="800">
+      <h1 class="fadeIn translateY" scrollAnimatedNode>David Ferlay</h1>
+      <h1 class="fadeIn translateY" scrollAnimatedNode>Développeur web</h1>
+      <p style="font-size: .9em;  overflow: auto; box-sizing: border-box;" class="fadeIn translateY" scrollAnimatedNode>
         Text
       </p>
-      <button class="large fadeInTranslate" animationLink>Commencer la visite</button>
+      <button class="large fadeIn translateY" scrollAnimatedNode>Commencer la visite</button>
     </div>
 
   </section>
 
   <section id="review">
-    <div animationChain [chainDelay]="200">
-      <h2 class="fadeInTranslate hight horizontal" animationLink>A propos</h2>
-      <h2 class="fadeInTranslate hight horizontal" animationLink>A propos</h2>
-      <h2 class="fadeInTranslate hight horizontal" animationLink>A propos</h2>
-      <h2 class="fadeInTranslate hight horizontal" animationLink>A propos</h2>
-      <h2 class="fadeInTranslate hight horizontal" animationLink>A propos</h2>
-      <h2 class="fadeInTranslate hight horizontal" animationLink>A propos</h2>
-      <h2 class="fadeInTranslate hight horizontal" animationLink>A propos</h2>
-      <h2 class="fadeInTranslate hight horizontal" animationLink>A propos</h2>
+    <div class="section-block" scrollAnimatedBlock [chainDelay]="350">
+      <h2 class="fadeIn translateY" scrollAnimatedNode><i class="fa-solid fa-caret-right"></i>A propos</h2>
     </div>
+    <div class="grid">
+      <p style="overflow-y: auto" scrollAnimatedBlock [delay]="200" class="fadeIn">
+        LOREM IPSUM LOREM IPSUM LOREM IPSUM LOREM IPSUM LOREM IPSUM LOREM IPSUM LOREM IPSUM LOREM IPSUM
+        LOREM IPSUM LOREM IPSUM
+        LOREM IPSUM LOREM IPSUM
+        LOREM IPSUM LOREM IPSUM
+        LOREM IPSUM LOREM IPSUM
+      </p>
+      <div scrollAnimatedBlock [childrenTransitionDelay]="300" [chainDelay]="100" [delay]="200" class="skill-list">
+        <h3>Frontend</h3>
+        <div scrollAnimatedNode class="fadeIn translateY">
+          <app-progress-bar title="Angular" [percent]="80" scrollAnimatedNode ></app-progress-bar>
+        </div>
+        <div scrollAnimatedNode class="fadeIn translateY">
+          <app-progress-bar title="Javascript / JQuery" [percent]="80" scrollAnimatedNode ></app-progress-bar>
+        </div>
+        <div scrollAnimatedNode class="fadeIn translateY">
+          <app-progress-bar title="Css / Scss" [percent]="80" scrollAnimatedNode ></app-progress-bar>
+        </div>
+        <div scrollAnimatedNode class="fadeIn translateY">
+          <app-progress-bar title="Html" [percent]="80" scrollAnimatedNode ></app-progress-bar>
+        </div>
+        <div scrollAnimatedNode class="fadeIn translateY">
+          <app-progress-bar title="Typescript" [percent]="70" scrollAnimatedNode ></app-progress-bar>
+        </div>
+      </div>
+
+      <div scrollAnimatedBlock [childrenTransitionDelay]="300" [chainDelay]="100" [delay]="200">
+        <h3>Backend</h3>
+        <div scrollAnimatedNode class="fadeIn translateY">
+          <app-progress-bar title="Php" [percent]="85" scrollAnimatedNode ></app-progress-bar>
+        </div>
+        <div scrollAnimatedNode class="fadeIn translateY">
+          <app-progress-bar title="Java" [percent]="80" scrollAnimatedNode ></app-progress-bar>
+        </div>
+        <div scrollAnimatedNode class="fadeIn translateY">
+          <app-progress-bar title="SQL" [percent]="75" scrollAnimatedNode ></app-progress-bar>
+        </div>
+        <div scrollAnimatedNode class="fadeIn translateY">
+          <app-progress-bar title="Symfony" [percent]="70" scrollAnimatedNode ></app-progress-bar>
+        </div>
+        <div scrollAnimatedNode class="fadeIn translateY">
+          <app-progress-bar title="Spring Boot" [percent]="60" scrollAnimatedNode ></app-progress-bar>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- <div scrollAnimatedBlock [chainDelay]="300" [delay]="300">
+      <h3 scrollAnimatedNode class="fadeIn translateX">Frontend</h3>
+      <ul class="skill-list" scrollAnimatedBlock [chainDelay]="100" [delayFirst]="true">
+        <li scrollAnimatedNode class="fadeIn translateY" ><i class="fa-solid fa-caret-right"></i><span>Angular</span><circle-progress [percent]="85"></circle-progress></li>
+        <li scrollAnimatedNode class="fadeIn translateY"><i class="fa-solid fa-caret-right"></i><span>Symfony</span><circle-progress [percent]="85"></circle-progress></li>
+        <li scrollAnimatedNode class="fadeIn translateY"><i class="fa-solid fa-caret-right"></i><span>SpringBoot</span><circle-progress [percent]="85"></circle-progress></li>
+        <li scrollAnimatedNode class="fadeIn translateY"><i class="fa-solid fa-caret-right"></i><span>Java</span><circle-progress [percent]="85"></circle-progress></li>
+      </ul>
+    </div>
+
+
+
+    <div scrollAnimatedBlock [chainDelay]="600" [delay]="450">
+      <h3 scrollAnimatedNode class="fadeIn translateX">Backend</h3>
+      <ul class="skill-list" scrollAnimatedBlock [chainDelay]="100" [delayFirst]="true">
+        <li scrollAnimatedNode class="fadeIn translateY" ><i class="fa-solid fa-caret-right"></i><span>Angular</span><circle-progress [percent]="85"></circle-progress></li>
+        <li scrollAnimatedNode class="fadeIn translateY"><i class="fa-solid fa-caret-right"></i><span>Symfony</span></li>
+        <li scrollAnimatedNode class="fadeIn translateY"><i class="fa-solid fa-caret-right"></i><span>SpringBoot</span></li>
+        <li scrollAnimatedNode class="fadeIn translateY"><i class="fa-solid fa-caret-right"></i><span>Java</span></li>
+      </ul>
+    </div> -->
 
   </section>
 
-  <div animationChain [delay]="1500">
-    <app-network-bar class="fadeIn" animationLink ></app-network-bar>
-  </div>
+  <app-network-bar class="fadeIn" scrollAnimatedBlock [delay]="1800" ></app-network-bar>
 
 
   <router-outlet (activate)="onActivate()"></router-outlet>
