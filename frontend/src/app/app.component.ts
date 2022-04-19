@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +8,9 @@ import { Component, HostListener } from '@angular/core';
 export class AppComponent {
   title = 'portfolio';
 
+  constructor(){}
+
   onActivate(){
     window.scrollTo(0, 0);
-    console.log("activate")
   }
 }

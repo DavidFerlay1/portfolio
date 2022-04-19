@@ -1,0 +1,38 @@
+
+
+.field-group{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-top: 0.6em;
+
+  label{
+    font-weight: 400;
+    font-size: .9em;
+    position: absolute;
+    top: -9px;
+    background: var(--navy);
+    padding: 0 5px;
+    color: var(--green);
+    left: 9px;
+    height: 18px;
+    line-height: 18px;
+    box-sizing: border-box;
+  }
+
+  .field{
+    background: transparent;
+    border: 2px solid var(--green);
+    outline: none;
+    color: var(--white);
+    padding: 10px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    height: 30px;
+  }
+
+  i{
+    height: 50px;
+    background: red;
+  }
+}

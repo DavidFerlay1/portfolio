@@ -2,15 +2,15 @@
 
   <div class="logo" ></div>
 
-  <nav scrollAnimatedBlock [chainDelay]="480">
-    <ul scrollAnimatedBlock [chainDelay]="120">
-        <li class="fadeIn" scrollAnimatedNode><a href="#review"><i class="fas fa-id-card"></i>À propos</a></li>
-        <li class="fadeIn" scrollAnimatedNode><a><i class="fas fa-briefcase"></i>Expérience</a></li>
-        <li class="fadeIn" scrollAnimatedNode><a><i class="fas fa-laptop-code"></i>Projets</a></li>
-        <li class="fadeIn" scrollAnimatedNode><a><i class="fas fa-envelope"></i>Contact</a></li>
+  <nav>
+    <ul scrollAnimatedBlock [chainDelay]="120" [async]="true" [dataList]="navLinks" [childrenTransitionDelay]="500">
+        <li *ngFor="let link of navLinks" class="fadeIn" scrollAnimatedNode><a (click)="navigationService.scrollTo(link.anchor)"><i [class]="link.icon"></i>{{link.label}}</a></li>
     </ul>
 
-    <button class="fadeIn" scrollAnimatedNode>Télécharger CV</button>
+    <div scrollAnimatedBlock [delay]="250" [childrenTransitionDelay]="500">
+      <button class="fadeIn" scrollAnimatedNode>Télécharger CV</button>
+    </div>
+
   </nav>
 
 </header>

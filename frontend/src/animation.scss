@@ -15,7 +15,11 @@
 }
 
 .translateX{
-  transform: translateX(3vw);
+  transform: translateX(10vw);
+
+  &.reverse{
+    transform: translateX(-10vw);
+  }
 
   &.triggered{
     transform: translateY(0);
