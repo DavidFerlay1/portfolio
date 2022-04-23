@@ -32,6 +32,7 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 
     &:before{
       content: "D";
@@ -77,6 +78,45 @@ header{
 
 }
 
+.chapter-group{
+  position: fixed;
+  right: 20px;
+  //bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transform: translate(calc(100% + 30px), -50%);
+  transition: all .3s ease-out;
+
+  &.visible{
+    transform: translate(0, -50%);
+  }
+
+  top: 50%;
+
+  .chapter{
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    border: 2px solid var(--green);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.disabled{
+      color: var(--grey);
+      border-color: var(--grey);
+      pointer-events: none;
+    }
+
+    &:first-child{
+      margin-bottom: 10px;
+    }
+
+  }
+}
+
 @media screen and (max-width: 770px){
   header{
 
@@ -91,5 +131,9 @@ header{
         transform: translateX(100%);
       }
 
+  }
+
+  .chapter-group{
+    right: 10px;
   }
 }

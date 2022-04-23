@@ -1,71 +1,58 @@
 <span #anchor id="begin" style="position: absolute; top: 0; left: 0"></span>
 <section id="home">
 
-  <div class="main_title" scrollAnimatedBlock [chainDelay]="120" [childrenTransitionDelay]="400" [delay]="400">
-    <h1 class="fadeIn translateY" scrollAnimatedNode>David Ferlay</h1>
-    <h1 class="fadeIn translateY" scrollAnimatedNode>Développeur web</h1>
-    <p style="font-size: .9em;  overflow: auto; box-sizing: border-box;" class="fadeIn translateY" scrollAnimatedNode>
+  <div class="main_title">
+    <h1 data-aos="fade-up">David Ferlay</h1>
+    <h1 data-aos="fade-up" data-aos-delay="150">Développeur web</h1>
+    <p style="font-size: .9em;  overflow: auto; box-sizing: border-box;" data-aos="fade-up" data-aos-delay="300">
       Text
     </p>
-    <button class="large fadeIn translateY" (click)="navigationService.scrollTo('review')" scrollAnimatedNode>Commencer la visite</button>
+    <button class="large" (click)="navigationService.scrollTo('review')" data-aos="fade-up">Commencer la visite</button>
   </div>
 
-  <div scrollAnimatedBlock [delay]="700" [childrenTransitionDelay]="1200">
-    <app-avatar scrollAnimatedNode class="fadeIn"></app-avatar>
-  </div>
+  <app-avatar></app-avatar>
 
   <!-- <app-field></app-field> -->
 
 </section>
 
 <section id="review" #anchor>
-  <div class="section-block" scrollAnimatedBlock [chainDelay]="350">
-    <h2 class="fadeIn translateY" scrollAnimatedNode><i class="fa-solid fa-caret-right"></i>A propos</h2>
+  <div class="section-block">
+    <h2 class="fadeIn translateY"><i class="fa-solid fa-caret-right"></i>A propos</h2>
   </div>
   <div class="grid">
     <div class="skill-list">
       <h3>Services</h3>
-      <ul scrollAnimatedBlock [chainDelay]="100" [childrenTransitionDelay]="200" [offset]="200">
-        <li class="fadeIn translateY" scrollAnimatedNode>Site web, site vitrine, E-commerce ...</li>
-        <li class="fadeIn translateY" scrollAnimatedNode>Devis gratuit</li>
-        <li class="fadeIn translateY" scrollAnimatedNode>Accompagnement et suivi</li>
-        <li class="fadeIn translateY" scrollAnimatedNode>Bonjour</li>
+      <ul>
+        <li>Site web, site vitrine, E-commerce ...</li>
+        <li>Devis gratuit</li>
+        <li>Accompagnement et suivi</li>
+        <li>Bonjour</li>
       </ul>
     </div>
 
-    <div scrollAnimatedBlock [childrenTransitionDelay]="300" [chainDelay]="100" [async]="true" [offset]="200" [dataList]="skills?.front" class="skill-list">
+    <div class="skill-list">
       <h3>Frontend</h3>
-      <div *ngFor="let skill of skills?.front" scrollAnimatedNode class="fadeIn translateY">
-        <app-progress-bar [title]="skill.label" [percent]="skill.level" scrollAnimatedNode></app-progress-bar>
+      <div *ngFor="let skill of skills?.front">
+        <app-progress-bar [title]="skill.label" [percent]="skill.level"></app-progress-bar>
       </div>
     </div>
 
-    <div scrollAnimatedBlock [childrenTransitionDelay]="300" [chainDelay]="100" [async]="true" [offset]="200" [dataList]="skills?.back" class="skill-list">
+    <div class="skill-list">
       <h3>Backend</h3>
-      <div *ngFor="let skill of skills?.back" scrollAnimatedNode class="fadeIn translateY">
-        <app-progress-bar [title]="skill.label" [percent]="skill.level" scrollAnimatedNode></app-progress-bar>
+      <div *ngFor="let skill of skills?.back">
+        <app-progress-bar [title]="skill.label" [percent]="skill.level"></app-progress-bar>
       </div>
     </div>
 
   </div>
 </section>
+
+<section id="experiences"></section>
 
 <section id="projects" class="nolimit" #anchor>
-
-  <div scrollAnimatedBlock [childrenTransitionDelay]="900" [offset]="100">
-    <div scrollAnimatedNode class="fadeIn translateX reverse">
-      <app-project></app-project>
-    </div>
-  </div>
-
-  <div scrollAnimatedBlock [childrenTransitionDelay]="900" [offset]="100" id="projects">
-    <div scrollAnimatedNode class="fadeIn translateX">
-      <app-project class="odd"></app-project>
-    </div>
-  </div>
+  <app-project></app-project>
+  <app-project class="odd"></app-project>
 </section>
 
-<div class="chapter-group" [ngClass]="{'visible': isAnchorsNavVisible}">
-  <a class="chapter previous" (click)="scrollToPreviousAnchor()"><i class="fas fa-arrow-up"></i></a>
-  <a class="chapter" (click)="scrollToNextAnchor()"><i class="fas fa-arrow-down"></i></a>
-</div>
+<section id="contact"></section>

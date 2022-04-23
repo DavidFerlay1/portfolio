@@ -1,5 +1,5 @@
 import { Component, HostBinding, HostListener, OnInit } from '@angular/core';
-import { NavigationService } from './navigation.service';
+import { NavigationService } from '../../../services/navigation.service';
 
 @Component({
   selector: 'app-header',
@@ -8,6 +8,9 @@ import { NavigationService } from './navigation.service';
 })
 export class HeaderComponent implements OnInit {
 
+  isSticky: boolean = true;
+  isVisible: boolean = true;
+
   @HostListener('window:scroll', []) onScroll() {
     this.isSticky = window.scrollY === 0;
     this.isVisible = this.lastScrollY >= window.scrollY;
@@ -15,9 +18,6 @@ export class HeaderComponent implements OnInit {
   }
 
   constructor(public navigationService: NavigationService) { }
-
-  isSticky: boolean = true;
-  isVisible: boolean = true;
 
   navLinks = [
     {
@@ -28,7 +28,7 @@ export class HeaderComponent implements OnInit {
     {
       icon: 'fas fa-briefcase',
       label: 'Expérience',
-      anchor: 'review'
+      anchor: 'experiences'
     },
     {
       icon: 'fas fa-laptop-code',
@@ -36,9 +36,9 @@ export class HeaderComponent implements OnInit {
       anchor: 'projects'
     },
     {
-      icon: 'fas fa-envelope',
+      icon: 'far fa-envelope',
       label: 'Contact',
-      anchor: 'review'
+      anchor: 'contact'
     },
   ]
 

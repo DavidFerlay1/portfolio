@@ -1,16 +1,20 @@
 <header [ngClass]="{'sticky': isSticky, 'visible': isVisible}" class="sticky visible">
 
-  <div class="logo" ></div>
+  <div class="logo" (click)="navigationService.scrollTo('begin')" ></div>
 
   <nav>
-    <ul scrollAnimatedBlock [chainDelay]="120" [async]="true" [dataList]="navLinks" [childrenTransitionDelay]="500">
-        <li *ngFor="let link of navLinks" class="fadeIn" scrollAnimatedNode><a (click)="navigationService.scrollTo(link.anchor)"><i [class]="link.icon"></i>{{link.label}}</a></li>
+
+    <ul>
+        <li *ngFor="let link of navLinks"><a (click)="navigationService.scrollTo(link.anchor)"><i [class]="link.icon"></i>{{link.label}}</a></li>
     </ul>
 
-    <div scrollAnimatedBlock [delay]="250" [childrenTransitionDelay]="500">
-      <button class="fadeIn" scrollAnimatedNode>Télécharger CV</button>
-    </div>
+    <button>Télécharger CV</button>
 
   </nav>
 
 </header>
+
+<div class="chapter-group" [ngClass]="{'visible': !isVisible}">
+  <a class="chapter" (click)="navigationService.scrollTo('begin')"><i class="fas fa-angle-up"></i></a>
+  <a class="chapter" *ngFor="let link of navLinks" (click)="navigationService.scrollTo(link.anchor)"><i [class]="link.icon"></i></a>
+</div>
