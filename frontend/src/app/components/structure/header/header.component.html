@@ -5,10 +5,10 @@
   <nav>
 
     <ul>
-        <li *ngFor="let link of navLinks"><a (click)="navigationService.scrollTo(link.anchor)"><i [class]="link.icon"></i>{{link.label}}</a></li>
+        <li *ngFor="let link of navLinks; let index = index" data-aos="fade" [attr.data-aos-delay]="index * 100" ><a (click)="navigationService.scrollTo(link.anchor)"><i [class]="link.icon"></i>{{link.label}}</a></li>
     </ul>
 
-    <button>Télécharger CV</button>
+    <button [attr.data-aos-delay]="(navLinks.length + 1) * 100" data-aos="fade">Télécharger CV</button>
 
   </nav>
 

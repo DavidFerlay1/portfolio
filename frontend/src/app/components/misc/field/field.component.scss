@@ -7,7 +7,7 @@
 
   label{
     font-weight: 400;
-    font-size: .9em;
+    font-size: .8em;
     position: absolute;
     top: -9px;
     background: var(--navy);
@@ -17,17 +17,24 @@
     height: 18px;
     line-height: 18px;
     box-sizing: border-box;
+
+    //left: 20px;
   }
 
   .field{
     background: transparent;
-    border: 2px solid var(--green);
+    border: 1px solid var(--white);
     outline: none;
     color: var(--white);
-    padding: 10px;
-    font-size: 1.2em;
+    padding: 7px 20px;
+    font-size: 1.1em;
     border-radius: 5px;
     height: 30px;
+
+    // border-bottom-left-radius: 50px;
+    // border-bottom-right-radius: 50px;
+    // border-top-left-radius: 50px;
+    // border-top-right-radius: 50px;
   }
 
   i{

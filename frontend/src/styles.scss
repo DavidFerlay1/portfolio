@@ -41,7 +41,7 @@
     button{
       padding: 10px 20px;
       border: 2px solid var(--green);
-      color: var(--green);
+      color: var(--white);
       letter-spacing: 3px;
       background-color: transparent;
       border-radius: 3px;
@@ -59,6 +59,11 @@
       &.large{
         padding: 20px 30px;
         font-size: 1.2em;
+      }
+
+      &[type=submit]{
+        border-radius: 5px;
+        width: 100%;
       }
     }
 
@@ -80,7 +85,7 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: var(--grey);
+  background: var(--dark-green);
 }
 
 /* Handle on hover */

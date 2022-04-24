@@ -51,6 +51,26 @@ h2{
   margin: 0;
   height: 10vh;
   position: relative;
+  padding-bottom: 25px;
+  font-family: "Roboto Condensed";
+
+  span{
+    color: var(--green);
+    margin-right: 10px;
+    font-family: "Roboto Condensed";
+  }
+
+  &::after{
+    position: absolute;
+    content: '';
+    display: block;
+    height: 1px;
+    background: var(--white);
+    width: 100%;
+    left: calc(100% + 10px);
+    top: 50%;
+    transform: translateY(-50%);
+  }
 
   i{
     color: var(--green);
@@ -140,6 +160,25 @@ h3{
   //box-shadow: 50px 65px  100px #666 inset;
   overflow: hidden;
 }
+.form-container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  form{
+    width: 700px;
+    max-width: 85%;
+    position: relative;
+
+    button{
+      position: absolute;
+      right: 0;
+      bottom: -40px;
+    }
+  }
+}
+
 
 app-avatar{
   position: absolute;
@@ -161,4 +200,20 @@ app-avatar{
   button{
     margin-top: 20px;
   }
+}
+
+textarea{
+  height: 30vh;
+  width: 100%;
+  border: 1px solid var(--white);
+  resize: none;
+  width:100%;
+  box-sizing: border-box;
+  border-radius: 5px;
+  background: transparent;
+  margin-bottom: 15px;
+  outline: none;
+  color: var(--white);
+  padding: 15px;
+  font-family: "Roboto";
 }

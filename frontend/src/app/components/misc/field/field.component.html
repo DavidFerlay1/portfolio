@@ -1,4 +1,4 @@
-<div class="field-group">
+<div class="field-group" [attr.data-aos]="dataAos" [attr.data-aos-delay]="dataAosDelay" [attr.data-aos-offset]="dataAosOffset">
   <label *ngIf="label">{{label}}</label>
   <input [type]="type" class="field" [spellcheck]="spellcheck" />
 </div>

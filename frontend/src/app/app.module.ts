@@ -12,6 +12,7 @@ import { AvatarComponent } from './components/misc/avatar/avatar.component';
 import { ApiInterceptor } from './interceptors/api.interceptor';
 import { HomeComponent } from './home/home.component';
 import { ProjectComponent } from './components/misc/project/project.component';
+import { FieldComponent } from './components/misc/field/field.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ProjectComponent } from './components/misc/project/project.component';
     AvatarComponent,
     HomeComponent,
     ProjectComponent,
+    FieldComponent
   ],
   imports: [
     BrowserModule,

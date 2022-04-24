@@ -4,6 +4,11 @@ main{
   overflow: hidden;
 }
 
+footer{
+  height: 250px;
+  background: var(--navy-shadow);
+}
+
 
 @media screen and (max-width: 770px){
 

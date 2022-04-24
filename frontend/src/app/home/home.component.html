@@ -2,12 +2,12 @@
 <section id="home">
 
   <div class="main_title">
-    <h1 data-aos="fade-up">David Ferlay</h1>
-    <h1 data-aos="fade-up" data-aos-delay="150">Développeur web</h1>
-    <p style="font-size: .9em;  overflow: auto; box-sizing: border-box;" data-aos="fade-up" data-aos-delay="300">
+    <h1 data-aos="fade-up" data-aos-delay="700">David Ferlay</h1>
+    <h1 data-aos="fade-up" data-aos-delay="800">Développeur web</h1>
+    <p style="font-size: .9em;  overflow: auto; box-sizing: border-box;" data-aos="fade-up" data-aos-delay="900">
       Text
     </p>
-    <button class="large" (click)="navigationService.scrollTo('review')" data-aos="fade-up">Commencer la visite</button>
+    <button class="large" (click)="navigationService.scrollTo('review')" data-aos="fade-up" data-aos-delay="1000">Commencer la visite</button>
   </div>
 
   <app-avatar></app-avatar>
@@ -17,30 +17,31 @@
 </section>
 
 <section id="review" #anchor>
+  <h2 data-aos="fade-left"><span>01.</span>A propos</h2>
   <div class="section-block">
     <h2 class="fadeIn translateY"><i class="fa-solid fa-caret-right"></i>A propos</h2>
   </div>
   <div class="grid">
     <div class="skill-list">
-      <h3>Services</h3>
+      <h3 data-aos="fade">Services</h3>
       <ul>
-        <li>Site web, site vitrine, E-commerce ...</li>
-        <li>Devis gratuit</li>
-        <li>Accompagnement et suivi</li>
-        <li>Bonjour</li>
+        <li data-aos="fade-up" data-aos-delay="0">Site web, site vitrine, E-commerce ...</li>
+        <li data-aos="fade-up" data-aos-delay="50">Devis gratuit</li>
+        <li data-aos="fade-up" data-aos-delay="100">Accompagnement et suivi</li>
+        <li data-aos="fade-up" data-aos-delay="150">Bonjour</li>
       </ul>
     </div>
 
     <div class="skill-list">
-      <h3>Frontend</h3>
-      <div *ngFor="let skill of skills?.front">
+      <h3 data-aos="fade" data-aos-delay="350">Frontend</h3>
+      <div *ngFor="let skill of skills?.front; let index = index" data-aos="fade-up" [attr.data-aos-delay]="400 + index * 100" >
         <app-progress-bar [title]="skill.label" [percent]="skill.level"></app-progress-bar>
       </div>
     </div>
 
     <div class="skill-list">
-      <h3>Backend</h3>
-      <div *ngFor="let skill of skills?.back">
+      <h3 data-aos="fade" data-aos-delay="450">Backend</h3>
+      <div *ngFor="let skill of skills?.back; let index = index" data-aos="fade-up" [attr.data-aos-delay]="(500 + 100 * skills?.front!.length) + 100 * index">
         <app-progress-bar [title]="skill.label" [percent]="skill.level"></app-progress-bar>
       </div>
     </div>
@@ -48,11 +49,25 @@
   </div>
 </section>
 
-<section id="experiences"></section>
-
-<section id="projects" class="nolimit" #anchor>
-  <app-project></app-project>
-  <app-project class="odd"></app-project>
+<section id="experiences">
+  <h2 data-aos="fade-left"><span>02.</span>Expérience</h2>
 </section>
 
-<section id="contact"></section>
+<section id="projects" class="nolimit" #anchor>
+  <h2 data-aos="fade-left" style="margin-bottom: 50px"><span>03.</span>Projets</h2>
+  <app-project data-aos="zoom-in-right"></app-project>
+  <app-project class="odd" [attr.data-aos]="'zoom-in-left'" data-aos-offset="500"></app-project>
+</section>
+
+<section id="contact">
+  <h2 data-aos="fade-left"><span>04.</span>Me contacter</h2>
+  <div class="form-container" >
+    <form data-aos="fade-up" data-aos-offset="200">
+      <app-field label="Adresse e-mail" formControlName="label"></app-field>
+      <app-field label="Objet" formControlName="level"></app-field>
+      <textarea></textarea>
+      <button type="submit" class="squared" placeholder="Entrez votre message">Envoyer</button>
+    </form>
+  </div>
+
+</section>
