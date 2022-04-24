@@ -13,6 +13,7 @@ import { ApiInterceptor } from './interceptors/api.interceptor';
 import { HomeComponent } from './home/home.component';
 import { ProjectComponent } from './components/misc/project/project.component';
 import { FieldComponent } from './components/misc/field/field.component';
+import { ExperienceComponent } from './components/misc/experience/experience.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FieldComponent } from './components/misc/field/field.component';
     AvatarComponent,
     HomeComponent,
     ProjectComponent,
-    FieldComponent
+    FieldComponent,
+    ExperienceComponent
   ],
   imports: [
     BrowserModule,

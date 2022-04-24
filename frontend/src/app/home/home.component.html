@@ -49,14 +49,25 @@
   </div>
 </section>
 
-<section id="experiences">
+<section id="experiences" class="nolimit">
   <h2 data-aos="fade-left"><span>02.</span>Expérience</h2>
+  <app-experience data-aos="zoom-in" title="Développement de l'appli web Saphir"></app-experience>
+  <app-experience data-aos="zoom-in" title="Développement de l'appli web Saphir"></app-experience>
+  <app-experience data-aos="zoom-in" title="Développement de l'appli web Saphir"></app-experience>
 </section>
 
 <section id="projects" class="nolimit" #anchor>
   <h2 data-aos="fade-left" style="margin-bottom: 50px"><span>03.</span>Projets</h2>
-  <app-project data-aos="zoom-in-right"></app-project>
-  <app-project class="odd" [attr.data-aos]="'zoom-in-left'" data-aos-offset="500"></app-project>
+
+  <div data-aos="zoom-in-right" data-aos-duration="700" data-aos-offset="200">
+    <app-project></app-project>
+  </div>
+
+  <div [attr.data-aos]="'zoom-in-left'" data-aos-duration="700" data-aos-offset="500">
+    <app-project class="odd" ></app-project>
+  </div>
+
+
 </section>
 
 <section id="contact">

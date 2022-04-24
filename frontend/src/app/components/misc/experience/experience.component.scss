@@ -1,0 +1,50 @@
+.container{
+  //height: 200px;
+  background: var(--navy-shadow);
+  border-left: 5px solid var(--dark-green);
+  margin-bottom: 15px;
+  padding: 20px;
+  position: relative;
+
+  button{
+    margin-left: auto;
+    margin-right: 0;
+    display: block;
+  }
+
+  h4{
+    padding: 0;
+    margin: 0;
+    font-size: 1.3em;
+    color: var(--white);
+    font-family: Roboto;
+    display: flex;
+    justify-content: space-between;
+
+    p{
+
+      margin: 0;
+      padding: 0;
+
+      span{
+        &:first-child{
+          color: var(--green);
+        }
+      }
+    }
+
+    > span {
+      font-size: .7em;
+      color: var(--grey);
+      font-weight: 400;
+    }
+  }
+
+  .techs{
+    font-size: .7em;
+    //font-style: italic;
+    color: var(--grey);
+    padding: 0;
+    margin: 10px 0;
+  }
+}
