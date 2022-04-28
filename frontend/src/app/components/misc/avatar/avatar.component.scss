@@ -80,3 +80,25 @@
 
   }
 }
+
+@media screen and (max-width: 700px) {
+
+  .moon{
+    width: 150px;
+    height: 150px;
+
+    img{
+      transform: scale(.8) translateY(10px);
+    }
+  }
+
+  .networks{
+    .network{
+      width: 35px;
+      height: 35px;
+
+      font-size: .8em;
+    }
+  }
+
+}

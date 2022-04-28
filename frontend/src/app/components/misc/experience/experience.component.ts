@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ExperienceDetailComponent } from './experience-detail/experience-detail.component';
 
 @Component({
   selector: 'app-experience',
@@ -9,9 +11,15 @@ export class ExperienceComponent implements OnInit {
 
   @Input() title: string = "";
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
+  }
+
+  viewDetail() {
+    let dialogRef = this.dialog.open(ExperienceDetailComponent, {
+      panelClass: 'dialogs-ref'
+    });
   }
 
 }

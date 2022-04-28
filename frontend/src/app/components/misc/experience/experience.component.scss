@@ -48,3 +48,20 @@
     margin: 10px 0;
   }
 }
+
+ ::ng-deep .dialogs-ref > .mat-dialog-container {
+  background: var(--navy);
+  width: 800px;
+  height: 500px;
+  padding: 0;
+}
+
+@media screen and (max-width: 700px) {
+
+  .container{
+    h4{
+      font-size: 1em;
+    }
+  }
+
+}

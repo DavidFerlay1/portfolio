@@ -21,6 +21,7 @@ export class FieldComponent implements ControlValueAccessor, Validator {
   @Input() dataAos: string = "";
   @Input() dataAosOffset: string = "";
   @Input() dataAosDelay: string = "";
+  @Input() multiline: boolean = false;
 
   constructor() { }
   writeValue(obj: any): void {
