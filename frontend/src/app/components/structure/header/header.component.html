@@ -1,6 +1,6 @@
 <header [ngClass]="{'sticky': isSticky, 'visible': isVisible}" class="sticky visible">
 
-  <div class="logo" (click)="navigationService.scrollTo('begin')" ></div>
+  <div class="logo" (click)="onLogoClick()"></div>
 
   <nav>
 

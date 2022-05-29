@@ -8,16 +8,11 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class AdminComponent implements OnInit {
 
-  skillFormGroup = new FormGroup({
-    label: new FormControl(''),
-    level: new FormControl(0)
-  })
-
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onSkillFormSubmit(){console.log('submit')}
+
 
 }

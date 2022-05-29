@@ -193,6 +193,16 @@ app-avatar{
   transform: translateY(-50%);
   left: 10%;
 
+  p{
+    font-size: 1.4em !important;
+    margin: 0px 0 20px;
+    padding: 0;
+    letter-spacing: 8px;
+    font-weight: 900;
+    display: flex;
+    justify-content: flex-end;
+  }
+
   h1:nth-child(2){
     color: var(--grey);
   }

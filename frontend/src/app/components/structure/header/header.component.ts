@@ -1,4 +1,5 @@
 import { Component, HostBinding, HostListener, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { NavigationService } from '../../../services/navigation.service';
 
 @Component({
@@ -43,6 +44,13 @@ export class HeaderComponent implements OnInit {
   ]
 
   private lastScrollY = window.scrollY;
+
+  onLogoClick() {
+    if(!this.navigationService.isPageAdmin)
+      this.navigationService.scrollTo("begin")
+    else
+      this.navigationService.redirect("/");
+  }
 
   ngOnInit(): void {
   }

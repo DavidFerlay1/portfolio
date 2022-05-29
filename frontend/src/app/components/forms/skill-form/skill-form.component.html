@@ -1,0 +1,13 @@
+<form [formGroup]="skillFormGroup" (submit)="onSubmit()">
+  <h5>Ajouter une compétence</h5>
+  <app-field label="Nom de la compétence" formControlName="label"></app-field>
+  <app-field label="Niveau de la compétence" formControlName="level"></app-field>
+  <div class="skilltypes-group">
+    <div class="checkbox-group" *ngFor="let option of skillTypeOptions; let index = index">
+      <input type="radio" formControlName="skillType" [value]="option.value" [id]="option.value" name="skillType" [checked]="index === 0" />
+      <label [for]="option.value">{{option.label}}</label>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="!skillFormGroup.valid">Enregistrer</button>
+</form>

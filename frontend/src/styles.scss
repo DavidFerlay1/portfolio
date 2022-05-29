@@ -39,12 +39,15 @@ $portfolio-theme: mat.define-light-theme((
 
   --green: #64ffda;
   --dark-green: #4bbfa4;
+  --green-transparent: #4bbfa433;
   --navy: #0a192f;
   --navy-shadow: rgba(2,12,27,0.7);
   --navy-transparent: rgba(10, 25, 47, .5);
   --navy-lite: #112240;
   --white: #ccd6f6;
   --grey: #8892b0;
+  --success: rgba(55,245,18,0.6);
+  --danger: rgba(228, 0, 0, 0.6);
 
   --header-height: 80px;
 
@@ -73,7 +76,7 @@ $portfolio-theme: mat.define-light-theme((
       }
     }
 
-    button{
+    button:not([mat-button]){
       padding: 10px 20px;
       border: 3px solid var(--green);
       color: var(--white);
@@ -87,6 +90,15 @@ $portfolio-theme: mat.define-light-theme((
       border-bottom-right-radius: 50px;
       font-family: Roboto;
       transition: all .2s;
+
+      &.danger:not(:disabled) {
+        color: rgb(255, 176, 176);
+      }
+
+      &:disabled{
+        pointer-events: none;
+        border-color: var(--grey);
+      }
 
       &:hover{
         background: rgba(100,255,218,0.1);
@@ -109,7 +121,135 @@ $portfolio-theme: mat.define-light-theme((
     h1{
       box-sizing: border-box;
     }
+
+    select {
+      appearance: none;
+      background: transparent;
+      color: var(--green);
+      //background: var(--navy-lite);
+      background: var(--navy);
+      height: 50px;
+      border: none;
+      outline: none;
+      color: var(--white);
+      padding: 0 8px;
+      font-size: 1.1em;
+      padding: 0 20px;
+
+      border: 3px solid var(--green);
+      border-radius: 3px;
+      position: relative;
+
+      &::after {
+        position: absolute;
+        right: 20px;
+        top: 0;
+        content: 'A';
+        display: block;
+      }
+    }
+
+    input[type=radio] {
+      width: 25px;
+      height: 25px;
+      appearance: none;
+      border: 2px solid var(--green);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+
+      &:checked::after{
+        content: '';
+        background: var(--green);
+        display: block;
+        height: 70%;
+        width: 70%;
+        border-radius: 50%;
+
+      }
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      label{
+        color: var(--white);
+        cursor: pointer;
+      }
+    }
   }
+}
+
+.info{
+  background: var(--green-transparent);
+}
+
+.success{
+  background: var(--success);
+}
+
+.danger{
+  background: var(--danger);
+}
+
+.itemList{
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid var(--dark-green);
+  overflow: hidden;
+  overflow-y: auto;
+  border-radius: 3px;
+  height: 100%;
+
+  li {
+    display: flex;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 10px;
+    color: var(--white);
+    transition: all .2s;
+    cursor: pointer;
+    border-bottom: 2px solid var(--dark-green);
+
+    &.selected {
+      background: var(--dark-green);
+      color: var(--navy)
+    }
+
+    &:not(:last-child) {
+
+    }
+
+    &:not(.selected):hover{
+      background: var(--green-transparent);
+    }
+  }
+}
+
+.dialogs-ref > .mat-dialog-container {
+  background: var(--navy);
+  width: 800px;
+  max-height: 500px;
+  padding: 25px;
+
+  h5{
+    color: var(--white);
+    font-size: 1.2em;
+    margin: 0;
+    padding:  0;
+    margin-bottom: 50px;
+  }
+}
+
+.dialogs-ref.confirm > .mat-dialog-container{
+  width: 500px;
 }
 
 /* width */

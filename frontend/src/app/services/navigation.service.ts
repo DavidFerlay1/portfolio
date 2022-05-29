@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ export class NavigationService {
   private anchorsHtmlElements: HTMLElement[] = [];
   private offset: number = 25;
 
-  constructor() { }
+  constructor(private route: Router) {}
 
   scrollTo(id: string){
     const element = document.getElementById(id);
@@ -17,6 +18,14 @@ export class NavigationService {
 
   setAnchors(anchorsHtmlElements: HTMLElement[]): void {
     this.anchorsHtmlElements = anchorsHtmlElements;
+  }
+
+  get isPageAdmin() {
+    return this.route.url === "/admin"
+  }
+
+  redirect(url: string) {
+    this.route.navigate([url]);
   }
 
   scrollToPreviousAnchor() {

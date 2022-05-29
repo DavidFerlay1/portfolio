@@ -1,0 +1,24 @@
+<section>
+
+  <h1>Compétences</h1>
+  <div class="grid-3">
+    <div>
+      <ul class="itemList">
+        <li *ngFor="let skill of skillService.skillMap?.front" [ngClass]="{'selected':selectedSkill?.id === skill.id}" #frontSkill (click)="selectSkill(skill)" [id]="skill.id">{{skill.label}} ({{skill.level}}%)</li>
+      </ul>
+    </div>
+
+    <div>
+      <ul class="itemList">
+        <li *ngFor="let skill of skillService.skillMap?.back" [ngClass]="{'selected':selectedSkill?.id === skill.id}" #backSkill (click)="selectSkill(skill)" [id]="skill.id">{{skill.label}} ({{skill.level}}%)</li>
+      </ul>
+    </div>
+
+    <div class="button-grid">
+      <button (click)="openFormDialog()">Créer</button>
+      <button [disabled]="!selectedSkill" (click)="openFormDialog(true, selectedSkill)">Modifier</button>
+      <button [disabled]="!selectedSkill" (click)="deleteSkill(selectedSkill!)" class="danger">Supprimer</button>
+    </div>
+  </div>
+
+</section>

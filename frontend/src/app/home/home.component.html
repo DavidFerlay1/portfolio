@@ -5,7 +5,7 @@
     <h1 data-aos="fade-up" data-aos-delay="700">David Ferlay</h1>
     <h1 data-aos="fade-up" data-aos-delay="800">Développeur web</h1>
     <p style="font-size: .9em;  overflow: auto; box-sizing: border-box;" data-aos="fade-up" data-aos-delay="900">
-      Text
+      Full stack
     </p>
     <div class="button-wrapper">
       <button class="large" (click)="navigationService.scrollTo('review')" data-aos="fade-up" data-aos-delay="1000" data-aos-offset="-100">Commencer la visite</button>
@@ -40,14 +40,14 @@
 
       <div class="skill-list">
         <h3 data-aos="fade" data-aos-delay="350">Frontend</h3>
-        <div *ngFor="let skill of skills?.front; let index = index" data-aos="fade-up" [attr.data-aos-delay]="400 + index * 100" >
+        <div *ngFor="let skill of skills?.front; let index = index" data-aos="fade-up" [attr.data-aos-delay]="300 + index * 50" >
           <app-progress-bar [title]="skill.label" [percent]="skill.level"></app-progress-bar>
         </div>
       </div>
 
       <div class="skill-list">
         <h3 data-aos="fade" data-aos-delay="450">Backend</h3>
-        <div *ngFor="let skill of skills?.back; let index = index" data-aos="fade-up" [attr.data-aos-delay]="(500 + 100 * skills?.front!.length) + 100 * index">
+        <div *ngFor="let skill of skills?.back; let index = index" data-aos="fade-up" [attr.data-aos-delay]="(400 + 50 * skills?.front!.length) + 50 * index">
           <app-progress-bar [title]="skill.label" [percent]="skill.level"></app-progress-bar>
         </div>
       </div>
@@ -59,9 +59,8 @@
 
 <section id="experiences" class="nolimit">
   <h2 data-aos="fade-left"><span>02.</span>Expérience</h2>
-  <app-experience data-aos="zoom-in" title="Développement de l'appli web Saphir"></app-experience>
-  <app-experience data-aos="zoom-in" title="Développement de l'appli web Saphir"></app-experience>
-  <app-experience data-aos="zoom-in" title="Développement de l'appli web Saphir"></app-experience>
+  <app-experience *ngFor="let exp of experiences" data-aos="zoom-in"
+    [title]="exp.title" [company]="exp.company" [post]="exp.post" [beginDate]="exp.beginDate" [endDate]="exp.endDate"></app-experience>
 </section>
 
 <section id="projects" class="nolimit" #anchor>

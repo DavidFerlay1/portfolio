@@ -1,6 +1,6 @@
 <div class="field-group" [attr.data-aos]="dataAos" [attr.data-aos-delay]="dataAosDelay" [attr.data-aos-offset]="dataAosOffset">
-  <input [type]="type" class="field" [spellcheck]="spellcheck" placeholder=" " *ngIf="!multiline" />
-  <textarea class="field multiline" *ngIf="multiline"></textarea>
+  <input [type]="type" class="field" [spellcheck]="spellcheck" placeholder=" " *ngIf="!multiline" [value]="value" (input)="valueChange($event)" />
+  <textarea class="field multiline" (change)="valueChange($event)" *ngIf="multiline"></textarea>
   <label *ngIf="label">{{label}}</label>
 </div>
 

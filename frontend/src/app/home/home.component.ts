@@ -4,6 +4,9 @@ import { Project } from '../models/project';
 import { SkillMap } from '../models/skill';
 import { ProjectService } from '../services/project.service';
 import { SkillService } from '../services/skill.service';
+import { ExperienceService } from '../services/experience.service';
+import { Experience } from '../models/experience';
+import { DateFormatService } from '../services/date-format.service';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +17,7 @@ export class HomeComponent implements OnInit {
 
   skills?: SkillMap;
   projects: Project[] = [];
+  experiences: Experience[] = [];
 
   isAnchorsNavVisible: boolean = false;
 
@@ -23,11 +27,14 @@ export class HomeComponent implements OnInit {
   constructor(private skillService: SkillService,
               private projectService: ProjectService,
               public navigationService: NavigationService,
+              public experienceService: ExperienceService,
+              private dateFormatService: DateFormatService,
               private renderer: Renderer2) { }
 
   ngOnInit(): void {
     this.skillService.getAllSkills().subscribe(skills => this.skills = skills);
     this.projectService.getAllProjects().subscribe(projects => this.projects = projects);
+    this.experienceService.getAllExperiences().subscribe(experiences => this.experiences = experiences);
   }
 
   onResumeNavLinkClick(index: number) {

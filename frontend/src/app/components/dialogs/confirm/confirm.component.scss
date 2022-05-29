@@ -1,0 +1,23 @@
+.title{
+  color: var(--white);
+  margin: 0;
+  padding: 0;
+  font-size: 1.2em;
+
+  i{
+    margin-right: 10px;
+  }
+}
+
+.message {
+  color: var(--white);
+  margin: 0;
+  padding: 15px 0 25px;
+  font-size: .9em;
+}
+
+.button-group {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}

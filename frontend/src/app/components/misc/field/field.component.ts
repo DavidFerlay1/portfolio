@@ -22,16 +22,26 @@ export class FieldComponent implements ControlValueAccessor, Validator {
   @Input() dataAosOffset: string = "";
   @Input() dataAosDelay: string = "";
   @Input() multiline: boolean = false;
+  @Input() value: string = "";
+
+  private onChange(value: string){};
+  private onTouch(value: string){};
+
+  valueChange(event: any) {
+    this.value = event.target.value;
+    this.onChange(this.value);
+  }
 
   constructor() { }
-  writeValue(obj: any): void {
-    throw new Error('Method not implemented.');
+
+  writeValue(value: string): void {
+    this.value = value;
   }
   registerOnChange(fn: any): void {
-    throw new Error('Method not implemented.');
+    this.onChange = fn;
   }
   registerOnTouched(fn: any): void {
-    throw new Error('Method not implemented.');
+    this.onTouch = fn;
   }
   validate(control: AbstractControl): ValidationErrors | null {
     throw new Error('Method not implemented.');
