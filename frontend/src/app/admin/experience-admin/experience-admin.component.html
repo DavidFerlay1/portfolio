@@ -1,0 +1,32 @@
+<section>
+  <h1>Expériences
+    <div class="buttons">
+      <button class="danger" [disabled]="!selectedExperience" *ngIf="editMod" (click)="onDelete()">Supprimer</button>
+      <button class="danger" *ngIf="!editMod" (click)="onCancelCreationMod()">Annuler</button>
+      <button *ngIf="editMod" (click)="onCreate()">Créer</button>
+      <button [disabled]="!selectedExperience || !formGroup.valid" (click)="onSave()">Enregistrer</button>
+    </div>
+  </h1>
+  <div class="exp-grid">
+    <app-item-list #items [(ngModel)]="selectedExperience" [items]="experienceService.experiences" itemLabel="title" (onSelect)="onSelection($event)"></app-item-list>
+    <form [formGroup]="formGroup" class="preview">
+      <ng-container *ngIf="selectedExperience; else voidMessage">
+        <app-field label="Titre" formControlName="title"></app-field>
+        <div class="fields">
+          <app-field label="Enseigne" formControlName="company"></app-field>
+          <app-field label="Poste occupé" formControlName="post"></app-field>
+        </div>
+        <div class="fields">
+          <app-field label="Date début" type="date" formControlName="beginDate"></app-field>
+          <app-field label="Date fin" type="date" formControlName="endDate"></app-field>
+        </div>
+        <div class="buttons">
+          <button (click)="onDetailClick()">Détail</button>
+        </div>
+      </ng-container>
+      <ng-template #voidMessage>Sélectionnez une expérience ou cliquez sur "Créer"</ng-template>
+
+    </form>
+  </div>
+
+</section>

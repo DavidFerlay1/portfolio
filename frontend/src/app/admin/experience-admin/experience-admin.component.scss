@@ -1,0 +1,58 @@
+section{
+  height: calc(100vh - 130px);
+  padding: 50px;
+  box-sizing: border-box;
+  border: 1px solid var(--green);
+  border-radius: 3px;
+  position: relative;
+
+  h1{
+    padding: 0;
+    margin: 0;
+    margin-bottom: 20px;
+    color: var(--white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .exp-grid {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    height: calc(100% - 70px);
+    gap: 30px;
+
+    button {
+      margin-top: 5px;
+    }
+  }
+
+  .button-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .preview {
+    border-radius: 3px;
+    border: 2px solid var(--dark-green);
+    padding: 20px;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+}
+
+:host ::ng-deep app-item-list {
+  height: 100%;
+}

@@ -23,13 +23,20 @@ export class FieldComponent implements ControlValueAccessor, Validator {
   @Input() dataAosDelay: string = "";
   @Input() multiline: boolean = false;
   @Input() value: string = "";
+  @Input() ignorable: boolean = false;
 
-  private onChange(value: string){};
+  ignored: boolean = false;
+
+  private onChange(value: any){};
   private onTouch(value: string){};
 
   valueChange(event: any) {
     this.value = event.target.value;
     this.onChange(this.value);
+  }
+
+  onIgnore(event: any) {
+    this.ignored = !event.target.checked;
   }
 
   constructor() { }

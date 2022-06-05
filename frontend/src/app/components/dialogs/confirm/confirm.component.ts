@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { DialogService } from 'src/app/services/dialog.service';
+import { DynamicDialogConfig } from 'primeng/dynamicdialog';
+import { AppDialogService } from 'src/app/services/app-dialog.service';
 
 @Component({
   selector: 'app-confirm',
@@ -18,8 +19,10 @@ export class ConfirmComponent {
 
   afterYes(){};
 
-  constructor(@Inject(MAT_DIALOG_DATA) data: any, public dialogService: DialogService) {
-    console.log(data)
+  constructor(public dialogService: AppDialogService, private config: DynamicDialogConfig) {
+
+    const data = this.config.data;
+
     this.title = data.title || "Attention";
     this.icon = data.icon || "fas fa-warning";
     this.message = data.message || "";

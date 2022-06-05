@@ -6,12 +6,14 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
 import { SharedModule } from '../shared/shared.module';
 import { SkillAdminComponent } from './skill-admin/skill-admin.component';
+import { ExperienceAdminComponent } from './experience-admin/experience-admin.component';
 
 
 @NgModule({
   declarations: [
     AdminComponent,
     SkillAdminComponent,
+    ExperienceAdminComponent,
   ],
   imports: [
     CommonModule,

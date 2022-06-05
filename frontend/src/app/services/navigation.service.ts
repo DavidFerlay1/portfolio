@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { HostListener, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -8,6 +8,7 @@ export class NavigationService {
 
   private anchorsHtmlElements: HTMLElement[] = [];
   private offset: number = 25;
+  currentAnchorIndex: number = 0;
 
   constructor(private route: Router) {}
 
@@ -57,6 +58,13 @@ export class NavigationService {
 
   getElementAtIndex(index: number): HTMLElement {
     return this.anchorsHtmlElements[index];
+  }
+
+  markCurrentAnchor(positionY: number) {
+    const reversed = [...this.anchorsHtmlElements].reverse();
+    const itemPosition = reversed.indexOf(reversed.find((item: HTMLElement) => item.getBoundingClientRect().top <= positionY)!)
+    this.currentAnchorIndex = [...this.anchorsHtmlElements].reverse().indexOf(this.anchorsHtmlElements.find((item: HTMLElement) => item.getBoundingClientRect().top - positionY < 0)!);
+    console.log(itemPosition)
   }
 
 }

@@ -28,7 +28,6 @@ export class HomeComponent implements OnInit {
               private projectService: ProjectService,
               public navigationService: NavigationService,
               public experienceService: ExperienceService,
-              private dateFormatService: DateFormatService,
               private renderer: Renderer2) { }
 
   ngOnInit(): void {

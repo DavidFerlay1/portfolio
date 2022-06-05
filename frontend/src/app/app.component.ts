@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentInit, AfterViewInit, Component, ElementRef, HostListener, OnInit, QueryList, ViewChildren } from '@angular/core';
 import * as AOS from 'aos';
+import { NavigationService } from './services/navigation.service';
 
 @Component({
   selector: 'app-root',

@@ -1,8 +1,7 @@
-import { Component, Inject, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { of } from 'rxjs';
-import { catchError, take } from 'rxjs/operators';
+import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { take } from 'rxjs/operators';
 import { Skill } from 'src/app/models/skill';
 import { SkillService } from 'src/app/services/skill.service';
 import { ToastService } from 'src/app/services/toast.service';
@@ -28,12 +27,13 @@ export class SkillFormComponent {
   private editMod: boolean;
   private skill?: Skill;
 
-  @Output() onSubmitResponseReceived = new EventEmitter();
+  private afterSubmit: Function;
 
   constructor(private toastService: ToastService,
-    private skillService: SkillService,
-    @Inject(MAT_DIALOG_DATA) data: any) {
+    private skillService: SkillService, private config: DynamicDialogConfig) {
 
+    const data = this.config.data.data;
+    this.afterSubmit = data.afterSubmit;
     this.editMod = data.editMod;
     this.skill = data.skill;
 
@@ -67,7 +67,7 @@ export class SkillFormComponent {
       this.skillService.editSkill(skill).pipe(take(1)).subscribe(
         (newSkill) => {
           this.toastService.success("Compétence éditée avec succès");
-          this.onSubmitResponseReceived.emit({newSkill, editMod: this.editMod});
+          this.afterSubmit({newSkill, editMod: this.editMod});
         },
         err => this.toastService.danger("Une erreur s'est produite")
       )
@@ -76,7 +76,7 @@ export class SkillFormComponent {
       this.skillService.createSkill(skill).pipe(take(1)).subscribe(
         (newSkill) => {
           this.toastService.success("Compétence créée avec succès");
-          this.onSubmitResponseReceived.emit({newSkill, editMod: this.editMod});
+          this.config.data.data.afterSubmit({newSkill, editMod: this.editMod})
         },
         err => this.toastService.danger("Une erreur s'est produite")
       );

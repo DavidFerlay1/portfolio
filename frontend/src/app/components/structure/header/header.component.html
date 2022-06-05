@@ -16,5 +16,5 @@
 
 <div class="chapter-group" [ngClass]="{'visible': !isVisible}">
   <a class="chapter" (click)="navigationService.scrollTo('begin')"><i class="fas fa-angle-up"></i></a>
-  <a class="chapter" *ngFor="let link of navLinks" (click)="navigationService.scrollTo(link.anchor)"><i [class]="link.icon"></i></a>
+  <a class="chapter" *ngFor="let link of navLinks; let index = index" [ngClass]="{'current': index === navigationService.currentAnchorIndex}" (click)="navigationService.scrollTo(link.anchor)"><i [class]="link.icon"></i></a>
 </div>

@@ -104,6 +104,10 @@ header{
     justify-content: center;
     align-items: center;
 
+    &.current {
+      background: red;
+    }
+
     &.disabled{
       color: var(--grey);
       border-color: var(--grey);

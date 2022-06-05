@@ -55,8 +55,8 @@ export class DateFormatService {
     return minify ? `${formattedMonth.substring(0, 3)}.` : formattedMonth;
   }
 
-  getFormattedDate(date: Date, minifyMonth: boolean = false, withDay: boolean = true, splitChar = '-'): string {
-    const splitted = date.toString().split(splitChar);
+  getFormattedDate(date: string, minifyMonth: boolean = false, withDay: boolean = true, splitChar = '-'): string {
+    const splitted = date.split(splitChar);
     let result = withDay ? `${splitted[2]} ` : '';
     return result + `${this.getFormattedMonth(splitted[1], minifyMonth)} ${splitted[0]}`;
   }

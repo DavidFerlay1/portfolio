@@ -76,7 +76,7 @@ $portfolio-theme: mat.define-light-theme((
       }
     }
 
-    button:not([mat-button]){
+    button:not([mat-button], .ql-link, .ql-format, .ql-code-block, .ql-clean, .ql-image, .ql-list, .ql-bold, .ql-italic, .ql-underline){
       padding: 10px 20px;
       border: 3px solid var(--green);
       color: var(--white);
@@ -207,6 +207,7 @@ $portfolio-theme: mat.define-light-theme((
   overflow-y: auto;
   border-radius: 3px;
   height: 100%;
+  max-height: 100%;
 
   li {
     display: flex;
@@ -246,6 +247,105 @@ $portfolio-theme: mat.define-light-theme((
     padding:  0;
     margin-bottom: 50px;
   }
+}
+
+p-editor {
+
+  button {
+    color: var(--white) !important;
+  }
+
+  .p-editor-container {
+
+    .p-editor-toolbar {
+      background: transparent;
+
+      &.ql-snow .ql-picker .ql-picker-label {
+        color: var(--white);
+      }
+
+      &.ql-snow .ql-stroke {
+        stroke: var(--white);
+      }
+
+      &.ql-snow .ql-picker.ql-expanded .ql-picker-label .ql-stroke {
+        stroke: var(--white);
+      }
+    }
+  }
+
+  .p-editor-container .ql-snow.ql-toolbar button.ql-active .ql-stroke, .p-editor-container .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke, .p-editor-container .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke{
+    stroke: var(--green);
+  }
+
+  .p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-options {
+    background: var(--navy-shadow);
+  }
+
+  .p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-options .ql-picker-item:hover {
+    background: var(--dark-green);
+    color: var(--white) !important;
+  }
+
+  .p-editor-container .p-editor-content .ql-editor {
+    height: 300px;
+    background: transparent;
+    color: var(--white);
+  }
+
+  .p-editor-container .p-editor-content .ql-editor, .p-editor-container .p-editor-toolbar.ql-snow {
+    border: 3px solid var(--grey);
+  }
+
+  .p-editor-container .p-editor-toolbar.ql-snow {
+    border-bottom: none;
+  }
+
+  .p-editor-container .p-editor-content.ql-snow {
+    border: none;
+  }
+
+  &.readOnly {
+    .p-editor-container .p-editor-toolbar {
+      display: none;
+    }
+
+    .p-editor-container .p-editor-content .ql-editor {
+      border-radius: 3px;
+    }
+  }
+}
+
+p-dynamicdialog {
+  .p-dialog .p-dialog-header, .p-dialog .p-dialog-content, .p-dialog .p-dialog-footer {
+    background: var(--navy);
+    color: var(--grey);
+  }
+
+  .p-component-overlay {
+    background-color: var(--green-transparent) !important;
+  }
+
+  .p-dialog .p-dialog-header .p-dialog-header-icon:enabled:hover, .p-dialog .p-dialog-header .p-dialog-header-icon:enabled:active {
+    background: transparent;
+    color: var(--green);
+  }
+
+  .p-dialog .p-dialog-header {
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+  }
+
+  .p-dialog .p-dialog-footer {
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    padding: 0;
+  }
+
+  .p-dialog .p-dialog-content{
+    padding-top: 25px;
+  }
+
 }
 
 .dialogs-ref.confirm > .mat-dialog-container{

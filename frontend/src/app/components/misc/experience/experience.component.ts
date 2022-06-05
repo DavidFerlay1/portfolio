@@ -12,8 +12,8 @@ export class ExperienceComponent implements OnInit {
 
   @Input() title: string = "";
   @Input() company: string = "";
-  @Input() beginDate?: Date = undefined;
-  @Input() endDate?: Date = undefined;
+  @Input() beginDate?: string = undefined;
+  @Input() endDate?: string = undefined;
   @Input() post: string = "";
   timeline: string = "";
 

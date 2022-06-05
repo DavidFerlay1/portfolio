@@ -1,4 +1,4 @@
-import { Component, HostBinding, HostListener, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostBinding, HostListener, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NavigationService } from '../../../services/navigation.service';
 
@@ -7,15 +7,18 @@ import { NavigationService } from '../../../services/navigation.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
   isSticky: boolean = true;
   isVisible: boolean = true;
+
+  private anchors: HTMLElement[] = [];
 
   @HostListener('window:scroll', []) onScroll() {
     this.isSticky = window.scrollY === 0;
     this.isVisible = this.lastScrollY >= window.scrollY;
     this.lastScrollY = window.scrollY;
+    this.navigationService.markCurrentAnchor(window.scrollY);
   }
 
   constructor(public navigationService: NavigationService) { }
@@ -50,9 +53,6 @@ export class HeaderComponent implements OnInit {
       this.navigationService.scrollTo("begin")
     else
       this.navigationService.redirect("/");
-  }
-
-  ngOnInit(): void {
   }
 
 }

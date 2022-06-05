@@ -4,6 +4,8 @@ section{
   box-sizing: border-box;
   border: 1px solid var(--green);
   border-radius: 3px;
+  margin-bottom: 104px;
+  position: relative;
 
   h1{
     padding: 0;
@@ -17,6 +19,10 @@ section{
     grid-template-columns: 2fr 2fr 1fr ;
     gap: 30px;
     height: calc(100% - 70px);
+
+    .itemList {
+      height: calc(100vh - 300px)
+    }
   }
 }
 

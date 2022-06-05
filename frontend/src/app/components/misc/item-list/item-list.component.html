@@ -1,0 +1,9 @@
+<div>
+  <h5 *ngIf="title">{{title}}</h5>
+  <ul class="itemList">
+    <label *ngIf="!items.length">{{emptyMessage}}</label>
+    <li *ngFor="let item of items; let index = index" [ngClass]="{'selected': index === selectedIndex}" (click)="selectItemAtIndex(index)">
+      {{itemLabel ? item[itemLabel] : ''}}
+    </li>
+  </ul>
+</div>

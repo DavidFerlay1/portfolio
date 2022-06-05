@@ -1,9 +1,8 @@
-import { Component, ElementRef, OnInit, QueryList, Renderer2, ViewChildren } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
 import { take } from 'rxjs/operators';
 import { SkillFormComponent } from 'src/app/components/forms/skill-form/skill-form.component';
 import { Skill } from 'src/app/models/skill';
-import { DialogService } from 'src/app/services/dialog.service';
+import { AppDialogService } from 'src/app/services/app-dialog.service';
 import { SkillService } from 'src/app/services/skill.service';
 import { ToastService } from 'src/app/services/toast.service';
 
@@ -21,8 +20,7 @@ export class SkillAdminComponent {
 
   constructor(public skillService: SkillService,
     private toastService: ToastService,
-    private dialog: MatDialog,
-    private dialogService: DialogService) { }
+    private dialogService: AppDialogService) { }
 
 
   selectSkill(skill: Skill, refresh: boolean = false) {
@@ -45,32 +43,35 @@ export class SkillAdminComponent {
     if(!editMod && this.selectedSkill)
       this.selectSkill(this.selectedSkill);
 
-    let dialogRef = this.dialog.open(SkillFormComponent, {
+    const dialogRef = this.dialogService.open(SkillFormComponent, editMod ? "Modifier une compétence" : "Ajouter une compétence", {
       panelClass: 'dialogs-ref',
       data: {
         editMod,
-        skill
+        skill,
+        afterSubmit: (data: {newSkill: Skill, editMod: boolean}) => {this.afterSkillFormSubmit(data); dialogRef.close();}
       }
+
     });
+  }
 
-    dialogRef.componentInstance.onSubmitResponseReceived.subscribe((response) => {
 
-      const newSkill = response.newSkill;
+  afterSkillFormSubmit(response: any) {
+    const newSkill = response.newSkill;
+    const editMod = response.editMod;
 
-      if(editMod) {
-        this.skillService.updateSkillInList(newSkill);
-        this.selectSkill(newSkill, true);
-      }
-      else {
-        this.skillService.addSkillInList(newSkill);
-        this.selectSkill(newSkill);
-      }
-      dialogRef.componentInstance.onSubmitResponseReceived.unsubscribe();
-      dialogRef.close();
-    })
+    if(editMod) {
+      this.skillService.updateSkillInList(newSkill);
+      this.selectSkill(newSkill, true);
+    }
+    else {
+      this.skillService.addSkillInList(newSkill);
+      this.selectSkill(newSkill);
+    }
   }
 
   deleteSkill(skill: Skill) {
+
+    console.log("delete")
 
     this.dialogService.confirmDialog({
       afterYes: () => {
