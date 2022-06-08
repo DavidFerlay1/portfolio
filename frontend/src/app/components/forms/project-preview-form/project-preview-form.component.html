@@ -1,0 +1,12 @@
+<div>
+  <div class="buttons">
+    <button (click)="fileInput.click()">Choisir une image</button>
+  </div>
+  <img *ngIf="imgUrl; else noImage" [src]="imgUrl" />
+  <ng-template #noImage>
+    <p class="placeholder-img">Aucune image</p>
+  </ng-template>
+  <span class="paratext">* Les images doivent correspondre au ratio 1920x940</span>
+  <button [disabled]="!notSavedChanges" type="submit" [ngClass]="{'warning': notSavedChanges}" (click)="onSaveClick()">Valider</button>
+  <input #fileInput type="file" (change)="onSelectedFileChange($event)" />
+</div>

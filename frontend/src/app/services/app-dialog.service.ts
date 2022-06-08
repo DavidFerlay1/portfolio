@@ -18,7 +18,8 @@ export class AppDialogService {
       ConfirmComponent,
       {
         data,
-        header: "Attention"
+        header: "Attention",
+        footer: " "
       }
     )
   }
@@ -27,12 +28,12 @@ export class AppDialogService {
     this.dialogRef?.close();
   }
 
-  open(componentType: ComponentType<any>, title: string, data: any = null) {
+  open(componentType: ComponentType<any>, title: string, data: any = null, modal = true) {
     return this.dialog.open(componentType, {
       data,
       width: "50%",
       footer: " ",
-      header: title
+      header: title,
     })
   }
 }

@@ -7,6 +7,7 @@ import { AdminComponent } from './admin.component';
 import { SharedModule } from '../shared/shared.module';
 import { SkillAdminComponent } from './skill-admin/skill-admin.component';
 import { ExperienceAdminComponent } from './experience-admin/experience-admin.component';
+import { ProjectAdminComponent } from './project-admin/project-admin.component';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { ExperienceAdminComponent } from './experience-admin/experience-admin.co
     AdminComponent,
     SkillAdminComponent,
     ExperienceAdminComponent,
+    ProjectAdminComponent,
   ],
   imports: [
     CommonModule,

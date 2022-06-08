@@ -1,0 +1,30 @@
+<section>
+  <h1>Projets
+    <div class="buttons">
+      <button *ngIf="editMod" (click)="onCreate()">Nouveau</button>
+      <button [disabled]="!selectedProject || !formGroup.valid || ((!file.files || !file.files.length) && !selectedProject.previewFile)" (click)="onSaveProjectClick()">Enregistrer</button>
+      <button *ngIf="editMod" [disabled]="!selectedProject" class="danger" (click)="onDeleteClick()">Supprimer</button>
+      <button *ngIf="!editMod" class="danger" (click)="onCancelCreationMod()">Annuler</button>
+    </div>
+  </h1>
+
+  <div class="pro-grid">
+    <app-item-list [(ngModel)]="selectedProject" [items]="projectService.projects" itemLabel="title" #itemList [disabled]="!editMod" (onSelect)="onProjectSelection($event)"></app-item-list>
+    <form class="preview" [formGroup]="formGroup">
+      <ng-container *ngIf="selectedProject; else voidMessage">
+        <app-field label="Titre" formControlName="title"></app-field>
+        <app-field label="Description courte" formControlName="description"></app-field>
+        <div class="fields">
+          <app-field label="URL du projet" formControlName="websiteUrl"></app-field>
+          <app-field label="URL du git du projet" formControlName="githubUrl"></app-field>
+        </div>
+        <div class="buttons">
+          <i *ngIf="(file.files && file.files.length) || selectedProject && selectedProject.previewFile" class="checkIcon fas fa-circle-check"></i>
+          <button (click)="onImageClick()" [ngClass]="{'warning': (!file.files || !file.files.length) && (!selectedProject || !selectedProject.previewFile)}">Image</button>
+        </div>
+      </ng-container>
+      <ng-template #voidMessage>Sélectionnez un projet ou cliquez sur "Nouveau"</ng-template>
+      <input type="file" #file>
+    </form>
+  </div>
+</section>

@@ -1,18 +1,18 @@
 <div class="container">
 
   <div class="img-overlay"></div>
-  <img src="../../../../assets/test.PNG">
+  <img [src]="previewFileUrl" />
 
   <div class="summary">
-    <h4>Portfolio</h4>
+    <h4>{{title}}</h4>
     <p>
-      Mon portfolio au calme tranquillement
+      {{description}}
     </p>
     <div class="btn-group">
-      <a><i class="fab fa-github"></i></a>
-      <a>Visiter</a>
+      <a *ngIf="githubUrl"><i class="fab fa-github"></i></a>
+      <a *ngIf="projectUrl">Visiter</a>
     </div>
   </div>
-  
+
   <div class="nav"></div>
 </div>

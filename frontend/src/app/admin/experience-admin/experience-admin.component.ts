@@ -13,7 +13,7 @@ import { ToastService } from 'src/app/services/toast.service';
   templateUrl: './experience-admin.component.html',
   styleUrls: ['./experience-admin.component.scss']
 })
-export class ExperienceAdminComponent implements OnInit {
+export class ExperienceAdminComponent {
 
   selectedExperience: Experience | undefined = undefined;
   editMod: boolean = true;
@@ -32,9 +32,6 @@ export class ExperienceAdminComponent implements OnInit {
 
   constructor(public experienceService: ExperienceService, private dialogService: AppDialogService, private toastService: ToastService) { }
 
-  ngOnInit(): void {
-  }
-
   onSelection(target: Experience) {
     if(target) {
       this.formGroup.patchValue({
@@ -43,6 +40,7 @@ export class ExperienceAdminComponent implements OnInit {
         post: target.post,
         company: target.company,
         beginDate: target.beginDate,
+        endDate: target.endDate,
         detail: target.detail
       })
     } else {
@@ -89,7 +87,6 @@ export class ExperienceAdminComponent implements OnInit {
     this.itemList.avoidSelection();
     this.selectedExperience = {id: '', title: '', post: '', company: '', beginDate: '', endDate: undefined, detail: ''};
     this.formGroup.patchValue(this.selectedExperience);
-    console.log(this.selectedExperience);
   }
 
   onCancelCreationMod() {

@@ -13,28 +13,19 @@ import { DateFormatService } from '../services/date-format.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
-
-  skills?: SkillMap;
-  projects: Project[] = [];
-  experiences: Experience[] = [];
+export class HomeComponent {
 
   isAnchorsNavVisible: boolean = false;
 
   @ViewChild("grid") grid!: ElementRef<HTMLElement>;
   @ViewChildren("navLink") navLinks!: QueryList<ElementRef<HTMLElement>>;
 
-  constructor(private skillService: SkillService,
-              private projectService: ProjectService,
+  constructor(public skillService: SkillService,
+              public projectService: ProjectService,
               public navigationService: NavigationService,
               public experienceService: ExperienceService,
               private renderer: Renderer2) { }
 
-  ngOnInit(): void {
-    this.skillService.getAllSkills().subscribe(skills => this.skills = skills);
-    this.projectService.getAllProjects().subscribe(projects => this.projects = projects);
-    this.experienceService.getAllExperiences().subscribe(experiences => this.experiences = experiences);
-  }
 
   onResumeNavLinkClick(index: number) {
     this.navLinks.forEach((navLink, i) =>  {

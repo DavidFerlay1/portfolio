@@ -1,10 +1,10 @@
 <section>
   <h1>Expériences
     <div class="buttons">
+      <button *ngIf="editMod" (click)="onCreate()">Nouveau</button>
+      <button [disabled]="!selectedExperience || !formGroup.valid" (click)="onSave()">Enregistrer</button>
       <button class="danger" [disabled]="!selectedExperience" *ngIf="editMod" (click)="onDelete()">Supprimer</button>
       <button class="danger" *ngIf="!editMod" (click)="onCancelCreationMod()">Annuler</button>
-      <button *ngIf="editMod" (click)="onCreate()">Créer</button>
-      <button [disabled]="!selectedExperience || !formGroup.valid" (click)="onSave()">Enregistrer</button>
     </div>
   </h1>
   <div class="exp-grid">
@@ -24,8 +24,7 @@
           <button (click)="onDetailClick()">Détail</button>
         </div>
       </ng-container>
-      <ng-template #voidMessage>Sélectionnez une expérience ou cliquez sur "Créer"</ng-template>
-
+      <ng-template #voidMessage>Sélectionnez une expérience ou cliquez sur "Nouveau"</ng-template>
     </form>
   </div>
 

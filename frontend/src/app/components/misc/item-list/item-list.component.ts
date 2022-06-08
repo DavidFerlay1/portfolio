@@ -14,6 +14,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 export class ItemListComponent implements ControlValueAccessor{
 
   @Output() onSelect = new EventEmitter();
+  @Input() disabled: boolean = false;
 
   @Input() title: string = "";
   @Input() emptyMessage: string = "Aucun objet";

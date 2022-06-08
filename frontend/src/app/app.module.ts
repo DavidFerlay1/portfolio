@@ -19,6 +19,7 @@ import { SharedModule } from './shared/shared.module';
 import { SkillFormComponent } from './components/forms/skill-form/skill-form.component';
 import { ConfirmComponent } from './components/dialogs/confirm/confirm.component';
 import { ExperienceDetailFormComponent } from './components/forms/experience-detail-form/experience-detail-form.component';
+import { ProjectPreviewFormComponent } from './components/forms/project-preview-form/project-preview-form.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ExperienceDetailFormComponent } from './components/forms/experience-det
     SkillFormComponent,
     ConfirmComponent,
     ExperienceDetailFormComponent,
+    ProjectPreviewFormComponent,
   ],
   imports: [
     BrowserModule,

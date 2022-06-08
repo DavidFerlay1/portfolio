@@ -1,7 +1,10 @@
 main{
-  margin-top: var(--header-height);
-  padding: 25px 120px;
   overflow: hidden;
+
+  &.navigable {
+    margin-top: var(--header-height);
+    padding: 25px 120px;
+  }
 }
 
 footer{
@@ -12,7 +15,7 @@ footer{
 
 @media screen and (max-width: 770px){
 
-  main{
+  main.navigable{
     padding: 10px 5%;
   }
 

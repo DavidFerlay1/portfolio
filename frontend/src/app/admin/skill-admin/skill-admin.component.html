@@ -15,7 +15,7 @@
     </div>
 
     <div class="button-grid">
-      <button (click)="openFormDialog()">Créer</button>
+      <button (click)="openFormDialog()">Nouveau</button>
       <button [disabled]="!selectedSkill" (click)="openFormDialog(true, selectedSkill)">Modifier</button>
       <button [disabled]="!selectedSkill" (click)="deleteSkill(selectedSkill!)" class="danger">Supprimer</button>
     </div>

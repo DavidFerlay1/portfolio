@@ -1,0 +1,40 @@
+.placeholder-img {
+  border: 3px solid var(--grey);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  height: 300px;
+  font-size: 1.5em;
+  margin: 0;
+  padding: 0;;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+}
+
+button[type=submit] {
+  margin-top: 10px;
+}
+
+img {
+  max-width: 100%;
+  box-shadow: 0 0 5px 5px var(--navy-shadow);
+}
+
+input[type=file] {
+  height: 0;
+  width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.paratext{
+  font-style: italic;
+  margin-top: 8px;
+  display: inline-block;;
+
+}

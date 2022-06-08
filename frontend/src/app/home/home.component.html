@@ -40,14 +40,14 @@
 
       <div class="skill-list">
         <h3 data-aos="fade" data-aos-delay="350">Frontend</h3>
-        <div *ngFor="let skill of skills?.front; let index = index" data-aos="fade-up" [attr.data-aos-delay]="300 + index * 50" >
+        <div *ngFor="let skill of skillService.skillMap?.front; let index = index" data-aos="fade-up" [attr.data-aos-delay]="300 + index * 50" >
           <app-progress-bar [title]="skill.label" [percent]="skill.level"></app-progress-bar>
         </div>
       </div>
 
       <div class="skill-list">
         <h3 data-aos="fade" data-aos-delay="450">Backend</h3>
-        <div *ngFor="let skill of skills?.back; let index = index" data-aos="fade-up" [attr.data-aos-delay]="(400 + 50 * skills?.front!.length) + 50 * index">
+        <div *ngFor="let skill of skillService.skillMap?.back; let index = index" data-aos="fade-up" [attr.data-aos-delay]="(400 + 50 * skillService.skillMap?.front!.length) + 50 * index">
           <app-progress-bar [title]="skill.label" [percent]="skill.level"></app-progress-bar>
         </div>
       </div>
@@ -59,21 +59,16 @@
 
 <section id="experiences" class="nolimit">
   <h2 data-aos="fade-left"><span>02.</span>Expérience</h2>
-  <app-experience *ngFor="let exp of experiences" data-aos="zoom-in"
-    [title]="exp.title" [company]="exp.company" [post]="exp.post" [beginDate]="exp.beginDate" [endDate]="exp.endDate"></app-experience>
+  <app-experience *ngFor="let exp of experienceService.experiences" data-aos="zoom-in"
+    [title]="exp.title" [experience]="exp"></app-experience>
 </section>
 
 <section id="projects" class="nolimit" #anchor>
   <h2 data-aos="fade-left" style="margin-bottom: 50px"><span>03.</span>Projets</h2>
 
-  <div data-aos="zoom-in-right" data-aos-duration="700" data-aos-offset="200">
-    <app-project></app-project>
+  <div data-aos="zoom-in-right" data-aos-duration="700" data-aos-offset="200" *ngFor="let project of projectService.projects; let index = index">
+    <app-project [ngClass]="{'odd': index % 2 !== 0}" [project]="project"></app-project>
   </div>
-
-  <div [attr.data-aos]="'zoom-in-left'" data-aos-duration="700" data-aos-offset="100">
-    <app-project class="odd" ></app-project>
-  </div>
-
 
 </section>
 

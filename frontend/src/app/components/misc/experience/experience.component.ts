@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { Experience } from 'src/app/models/experience';
+import { AppDialogService } from 'src/app/services/app-dialog.service';
 import { DateFormatService } from 'src/app/services/date-format.service';
 import { ExperienceDetailComponent } from './experience-detail/experience-detail.component';
 
@@ -10,34 +11,31 @@ import { ExperienceDetailComponent } from './experience-detail/experience-detail
 })
 export class ExperienceComponent implements OnInit {
 
-  @Input() title: string = "";
-  @Input() company: string = "";
-  @Input() beginDate?: string = undefined;
-  @Input() endDate?: string = undefined;
-  @Input() post: string = "";
+  @Input() experience?: Experience;
+
   timeline: string = "";
 
-  constructor(public dialog: MatDialog, public dateFormatService: DateFormatService) { }
+  constructor(private dialogService: AppDialogService, public dateFormatService: DateFormatService) { }
 
   ngOnInit(): void {
     this.initTimeline();
   }
 
   viewDetail() {
-    let dialogRef = this.dialog.open(ExperienceDetailComponent, {
-      panelClass: 'dialogs-ref'
+    let dialogRef = this.dialogService.open(ExperienceDetailComponent, "Détail", {
+      experience: this.experience
     });
   }
 
   initTimeline() {
-    if(!this.beginDate)
+    if(!this.experience?.beginDate)
       return;
 
-    this.timeline = this.endDate ? `De ${this.dateFormatService.getFormattedDate(this.beginDate, false, false)}` :
-        `Depuis ${this.dateFormatService.getFormattedDate(this.beginDate, false, false)}`;
+    this.timeline = this.experience.endDate ? `De ${this.dateFormatService.getFormattedDate(this.experience.beginDate, false, false)}` :
+        `Depuis ${this.dateFormatService.getFormattedDate(this.experience.beginDate, false, false)}`;
 
-    if(this.endDate)
-      this.timeline += ` à ${this.dateFormatService.getFormattedDate(this.endDate, false, false)}`;
+    if(this.experience.endDate)
+      this.timeline += ` à ${this.dateFormatService.getFormattedDate(this.experience.endDate, false, false)}`;
   }
 
 }

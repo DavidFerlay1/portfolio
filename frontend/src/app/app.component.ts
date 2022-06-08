@@ -1,4 +1,5 @@
 import { AfterContentInit, AfterViewInit, Component, ElementRef, HostListener, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { Router } from '@angular/router';
 import * as AOS from 'aos';
 import { NavigationService } from './services/navigation.service';
 
@@ -10,7 +11,7 @@ import { NavigationService } from './services/navigation.service';
 export class AppComponent implements OnInit {
   title = 'portfolio';
 
-  constructor(){}
+  constructor(public _router: Router){}
 
   onActivate(){
     window.scrollTo(0, 0);

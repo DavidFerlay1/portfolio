@@ -1,9 +1,9 @@
-<app-header></app-header>
+<app-header *ngIf="_router.url != '/login'"></app-header>
 
-<main>
+<main [ngClass]="{'navigable': _router.url != '/login'}">
 
   <router-outlet (activate)="onActivate()"></router-outlet>
 
 </main>
 
-<footer></footer>
+<footer  *ngIf="_router.url != '/login'"></footer>

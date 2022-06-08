@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 
 import { ConnectionRoutingModule } from './connection-routing.module';
 import { SharedModule } from '../shared/shared.module';
-import { FieldComponent } from '../components/misc/field/field.component';
+import { ConnectionComponent } from './connection.component';
 
 
 @NgModule({
   declarations: [
+    ConnectionComponent
   ],
   imports: [
     CommonModule,

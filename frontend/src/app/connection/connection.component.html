@@ -1,5 +1,8 @@
-<div>
-  <form>
-
+<div class="container">
+  <form [formGroup]="credentials">
+    <h1>Connexion</h1>
+    <app-field label="Utilisateur" formControlName="username"></app-field>
+    <app-field type="password" label="Mot de passe" formControlName="password"></app-field>
+    <button type="submit" [disabled]="!credentials.valid">Se connecter</button>
   </form>
 </div>

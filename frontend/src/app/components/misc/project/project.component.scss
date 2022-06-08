@@ -13,7 +13,7 @@
 
     img{
       width: 70%;
-      border-bottom: 1px solid var(--grey);
+      //border-bottom: 1px solid var(--grey);
       box-shadow: 0 0 35px var(--navy-shadow);
       border-radius: 5px;
     }
@@ -27,6 +27,7 @@
       width: 70%;
       height: 100%;
       transition: opacity .3s;
+      border-radius: 5px;
 
       &:hover{
         opacity: 0;
@@ -62,12 +63,24 @@
       .btn-group{
         padding: 15px;
         border-top: 1px solid var(--grey);
-        display: flex;
-        gap: 10px;
-        justify-content: space-between;
+        // display: flex;
+        // gap: 10px;
+        // justify-content: space-between;
+        position: relative;
+        height: 50px;
 
         a{
           color: var(--green);
+          position: absolute;
+          left: 16px;
+          top: 25px;
+          transform: translateY(-50%);
+
+          &:last-child {
+            left: auto;
+            right: 16px;
+          }
+
           &:hover{
             color: var(--white);
           }

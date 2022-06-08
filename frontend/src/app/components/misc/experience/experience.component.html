@@ -1,11 +1,11 @@
 <div class="container">
   <h4>
     <p>
-       <span>{{company}}</span> - <span>{{title}}</span>
+       <span>{{experience?.company}}</span> - <span>{{experience?.title}}</span>
     </p>
     <span>{{timeline}}</span>
   </h4>
-  <p class="techs">{{post}}</p>
+  <p class="techs">{{experience?.post}}</p>
 
   <button (click)="viewDetail()">Détail</button>
 
