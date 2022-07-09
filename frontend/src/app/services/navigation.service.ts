@@ -1,5 +1,6 @@
-import { HostListener, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,10 @@ export class NavigationService {
   private anchorsHtmlElements: HTMLElement[] = [];
   private offset: number = 25;
   currentAnchorIndex: number = 0;
+
+  isHeaderSticky: boolean = true;
+  isHeaderVisible: boolean = true;
+  isNavMenuOpen = new BehaviorSubject<boolean>(false);
 
   constructor(private route: Router) {}
 

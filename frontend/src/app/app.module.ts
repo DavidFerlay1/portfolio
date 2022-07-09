@@ -20,6 +20,7 @@ import { SkillFormComponent } from './components/forms/skill-form/skill-form.com
 import { ConfirmComponent } from './components/dialogs/confirm/confirm.component';
 import { ExperienceDetailFormComponent } from './components/forms/experience-detail-form/experience-detail-form.component';
 import { ProjectPreviewFormComponent } from './components/forms/project-preview-form/project-preview-form.component';
+import { BurgerButtonComponent } from './components/structure/header/burger-button/burger-button.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ProjectPreviewFormComponent } from './components/forms/project-preview-
     ConfirmComponent,
     ExperienceDetailFormComponent,
     ProjectPreviewFormComponent,
+    BurgerButtonComponent,
   ],
   imports: [
     BrowserModule,

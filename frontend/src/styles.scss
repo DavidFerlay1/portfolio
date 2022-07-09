@@ -303,9 +303,17 @@ p-editor {
   }
 
   .p-editor-container .p-editor-content .ql-editor {
-    height: 300px;
+    height: calc(480px);
     background: transparent;
     color: var(--white);
+
+    p, ul {
+      color: var(--white);
+    }
+
+    h2 {
+      color: var(--green)
+    }
   }
 
   .p-editor-container .p-editor-content .ql-editor, .p-editor-container .p-editor-toolbar.ql-snow {
@@ -346,6 +354,13 @@ input[type=date] {
 .warningIcon{
   color: orange;
   font-size: 1.3em;
+}
+
+.p-dynamic-dialog.p-dialog {
+  width: 800px !important;
+  height: 600px !important;
+  max-height: 90%;
+  max-width: 90%;
 }
 
 p-dynamicdialog {
@@ -392,12 +407,14 @@ p-dynamicdialog {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: var(--navy)
+  background: transparent;
+  box-shadow: 0 0 8px var(--green-transparent) inset;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: var(--dark-green);
+  box-shadow: 0 0 8px var(--green-transparent);
 }
 
 /* Handle on hover */
@@ -407,3 +424,10 @@ p-dynamicdialog {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body.navOpen {overflow: hidden;}
+
+@media screen and (max-width: 800px) {
+  button.large {
+    font-size: .8em !important;
+  }
+}

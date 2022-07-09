@@ -97,6 +97,7 @@ h3{
   height: 100%;
   gap: 50px;
   justify-items: center;
+  overflow: hidden;
 
   ul{
     margin: 0;
@@ -311,7 +312,7 @@ textarea{
   }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 800px) {
   .main_title{
     position: static;
     transform: none;
@@ -327,7 +328,7 @@ textarea{
     }
 
     p {
-      text-align: center;
+      justify-content: center;
     }
 
     .button-wrapper {

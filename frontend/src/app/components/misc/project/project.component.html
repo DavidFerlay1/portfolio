@@ -9,8 +9,8 @@
       {{description}}
     </p>
     <div class="btn-group">
-      <a *ngIf="githubUrl"><i class="fab fa-github"></i></a>
-      <a *ngIf="projectUrl">Visiter</a>
+      <a *ngIf="githubUrl" [href]="githubUrl" target="_blank"><i class="fab fa-github"></i></a>
+      <a *ngIf="projectUrl" class="right" [href]="projectUrl" target="_blank">Visiter</a>
     </div>
   </div>
 

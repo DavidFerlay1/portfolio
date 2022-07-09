@@ -56,6 +56,7 @@ export class SkillService {
   addSkillInList(newSkill: Skill) {
     const targetList = newSkill.type === "front" ? this._skillMap!.front : this._skillMap!.back;
     targetList.push(newSkill);
+    targetList.sort((a, b) => b.level - a.level);
   }
 
   removeSkillFromList(skillToDelete: Skill) {

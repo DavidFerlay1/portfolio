@@ -7,8 +7,8 @@
     <p style="font-size: .9em;  overflow: auto; box-sizing: border-box;" data-aos="fade-up" data-aos-delay="900">
       Full stack
     </p>
-    <div class="button-wrapper">
-      <button class="large" (click)="navigationService.scrollTo('review')" data-aos="fade-up" data-aos-delay="1000" data-aos-offset="-100">Commencer la visite</button>
+    <div class="button-wrapper" data-aos="fade-up" data-aos-delay="1000" data-aos-offset="-100">
+      <button class="large" (click)="navigationService.scrollTo('review')">Commencer la visite</button>
     </div>
 
   </div>
@@ -31,7 +31,7 @@
       <div class="skill-list">
         <h3 data-aos="fade">Services</h3>
         <ul>
-          <li data-aos="fade-up" data-aos-delay="0">Site web, site vitrine, E-commerce ...</li>
+          <li data-aos="fade-up" data-aos-delay="0">Site vitrine, E-commerce, ERP ...</li>
           <li data-aos="fade-up" data-aos-delay="50">Devis gratuit</li>
           <li data-aos="fade-up" data-aos-delay="100">Accompagnement et suivi</li>
           <li data-aos="fade-up" data-aos-delay="150">Bonjour</li>
@@ -66,7 +66,7 @@
 <section id="projects" class="nolimit" #anchor>
   <h2 data-aos="fade-left" style="margin-bottom: 50px"><span>03.</span>Projets</h2>
 
-  <div data-aos="zoom-in-right" data-aos-duration="700" data-aos-offset="200" *ngFor="let project of projectService.projects; let index = index">
+  <div *ngFor="let project of projectService.projects; let index = index" [attr.data-aos]="index % 2 === 0 ? 'zoom-in-right' : 'zoom-in-left'" data-aos-duration="700" data-aos-offset="200">
     <app-project [ngClass]="{'odd': index % 2 !== 0}" [project]="project"></app-project>
   </div>
 

@@ -1,20 +1,25 @@
-<header [ngClass]="{'sticky': isSticky, 'visible': isVisible}" class="sticky visible">
+<header [ngClass]="{'sticky': navigationService.isHeaderSticky, 'visible': navigationService.isHeaderVisible, 'open': isNavbarOpen}" class="sticky visible">
 
   <div class="logo" (click)="onLogoClick()"></div>
 
   <nav>
 
     <ul>
-        <li *ngFor="let link of navLinks; let index = index" data-aos="fade" [attr.data-aos-delay]="index * 100" ><a (click)="navigationService.scrollTo(link.anchor)"><i [class]="link.icon"></i>{{link.label}}</a></li>
+        <li *ngFor="let link of navLinks; let index = index" data-aos="fade" [attr.data-aos-delay]="index * 100" ><a (click)="onNavlinkClick(); navigationService.scrollTo(link.anchor)"><i [class]="link.icon"></i>{{link.label}}</a></li>
     </ul>
 
-    <button [attr.data-aos-delay]="(navLinks.length + 1) * 100" data-aos="fade">Télécharger CV</button>
+    <div [attr.data-aos-delay]="(navLinks.length + 1) * 100" data-aos="fade">
+      <button>Télécharger CV</button>
+    </div>
 
   </nav>
 
+  <app-burger-button (onStateChange)="onBurgerButtonStateChange($event)"></app-burger-button>
+
 </header>
 
-<div class="chapter-group" [ngClass]="{'visible': !isVisible}">
+<!-- <a class="nav-shortcut"><app-burger-button (onStateChange)="onBurgerButtonStateChange($event)"></app-burger-button></a> -->
+<div class="chapter-group" [ngClass]="{'visible': !navigationService.isHeaderVisible}">
   <a class="chapter" (click)="navigationService.scrollTo('begin')"><i class="fas fa-angle-up"></i></a>
   <a class="chapter" *ngFor="let link of navLinks; let index = index" [ngClass]="{'current': index === navigationService.currentAnchorIndex}" (click)="navigationService.scrollTo(link.anchor)"><i [class]="link.icon"></i></a>
 </div>

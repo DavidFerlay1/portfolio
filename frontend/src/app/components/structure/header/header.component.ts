@@ -1,5 +1,6 @@
-import { AfterViewInit, Component, ElementRef, HostBinding, HostListener, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostBinding, HostListener, OnDestroy, OnInit, QueryList, Renderer2, ViewChildren } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { NavigationService } from '../../../services/navigation.service';
 
 @Component({
@@ -7,21 +8,39 @@ import { NavigationService } from '../../../services/navigation.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit, OnDestroy {
 
-  isSticky: boolean = true;
-  isVisible: boolean = true;
-
-  private anchors: HTMLElement[] = [];
+  private openNavbarSubscription?: Subscription;
+  isNavbarOpen = false;
 
   @HostListener('window:scroll', []) onScroll() {
-    this.isSticky = window.scrollY === 0;
-    this.isVisible = this.lastScrollY >= window.scrollY;
+    this.navigationService.isHeaderSticky = window.scrollY === 0;
+    this.navigationService.isHeaderVisible = this.lastScrollY >= window.scrollY;
     this.lastScrollY = window.scrollY;
     this.navigationService.markCurrentAnchor(window.scrollY);
   }
 
-  constructor(public navigationService: NavigationService) { }
+  @HostListener('window:resize', []) onResize() {
+    if(this.isNavbarOpen && window.innerWidth <= 800) {
+      this.navigationService.isNavMenuOpen.next(false)
+    }
+  }
+
+  constructor(public navigationService: NavigationService, private renderer: Renderer2) { }
+
+  ngOnInit(): void {
+    this.openNavbarSubscription = this.navigationService.isNavMenuOpen.subscribe(value => {
+      this.isNavbarOpen = value;
+      if(value)
+        this.renderer.addClass(document.body, 'navOpen');
+      else
+        this.renderer.removeClass(document.body, 'navOpen');
+    })
+  }
+
+  ngOnDestroy(): void {
+    this.openNavbarSubscription?.unsubscribe();
+  }
 
   navLinks = [
     {
@@ -53,6 +72,18 @@ export class HeaderComponent {
       this.navigationService.scrollTo("begin")
     else
       this.navigationService.redirect("/");
+  }
+
+  onBurgerButtonStateChange(state: boolean) {
+    this.navigationService.isNavMenuOpen.next(state);
+  }
+
+  onInvisibleHeaderBurgerButtonStateChange(state: boolean) {
+    this.navigationService.isNavMenuOpen.next(state);
+  }
+
+  onNavlinkClick() {
+    this.navigationService.isNavMenuOpen.next(false);
   }
 
 }

@@ -5,6 +5,8 @@
   margin-bottom: 15px;
   padding: 20px;
   position: relative;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 
   button{
     margin-left: auto;
@@ -49,7 +51,7 @@
   }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 800px) {
 
   .container{
     h4{
