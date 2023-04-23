@@ -85,7 +85,7 @@ export class ExperienceAdminComponent {
   onCreate() {
     this.editMod = false;
     this.itemList.avoidSelection();
-    this.selectedExperience = {id: '', title: '', post: '', company: '', beginDate: '', endDate: undefined, detail: ''};
+    this.selectedExperience = {id: undefined, title: '', post: '', company: '', beginDate: '', endDate: undefined, detail: ''};
     this.formGroup.patchValue(this.selectedExperience);
   }
 
@@ -98,7 +98,6 @@ export class ExperienceAdminComponent {
   }
 
   onDetailClick() {
-    console.log(this.formGroup)
     this.dialogService.open(ExperienceDetailFormComponent, "Détail de l'expérience", {detail: this.selectedExperience?.detail, onValidate: this.onDetailValidateClick.bind(this)});
   }
 

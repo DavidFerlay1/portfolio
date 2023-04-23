@@ -1,6 +1,8 @@
 import { AfterViewInit, Component, ElementRef, HostBinding, HostListener, OnDestroy, OnInit, QueryList, Renderer2, ViewChildren } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
+import { FileService } from 'src/app/services/file.service';
 import { NavigationService } from '../../../services/navigation.service';
 
 @Component({
@@ -26,7 +28,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     }
   }
 
-  constructor(public navigationService: NavigationService, private renderer: Renderer2) { }
+  constructor(public navigationService: NavigationService, private renderer: Renderer2, public authService: AuthService, public fileService: FileService) { }
 
   ngOnInit(): void {
     this.openNavbarSubscription = this.navigationService.isNavMenuOpen.subscribe(value => {

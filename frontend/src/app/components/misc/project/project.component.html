@@ -10,9 +10,12 @@
     </p>
     <div class="btn-group">
       <a *ngIf="githubUrl" [href]="githubUrl" target="_blank"><i class="fab fa-github"></i></a>
-      <a *ngIf="projectUrl" class="right" [href]="projectUrl" target="_blank">Visiter</a>
+      <a *ngIf="projectUrl" class="right" [href]="projectUrl | safe: 'resourceUrl'" target="_blank">Visiter</a>
     </div>
   </div>
 
-  <div class="nav"></div>
+  <div class="nav" *ngIf="githubUrl || projectUrl">
+    <a *ngIf="githubUrl" [href]="githubUrl" target="_blank"><i class="fab fa-github"></i></a>
+    <a *ngIf="projectUrl" class="right" [href]="projectUrl | safe: 'resourceUrl'" target="_blank">Visiter</a>
+  </div>
 </div>

@@ -1,5 +1,5 @@
 export interface Skill {
-  id?: string,
+  id?: number,
   label: string,
   level: number,
   type: string
@@ -7,5 +7,6 @@ export interface Skill {
 
 export interface SkillMap {
   front: Skill[],
-  back: Skill[]
+  back: Skill[],
+  misc: Skill[]
 }

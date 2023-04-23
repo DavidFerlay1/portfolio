@@ -1,0 +1,29 @@
+section{
+  height: calc(100vh - 130px);
+  padding: 50px;
+  box-sizing: border-box;
+  border: 1px solid var(--green);
+  border-radius: 3px;
+  position: relative;
+
+  h1{
+    padding: 0;
+    margin: 0;
+    margin-bottom: 20px;
+    color: var(--white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .doc_group {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    .btn-group {
+      display: flex;
+      gap: 5px;
+    }
+  }
+}

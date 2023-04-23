@@ -22,7 +22,7 @@ export class ProjectComponent implements OnInit {
       this.description = this.project.description || '';
       this.githubUrl = this.project.githubUrl;
       this.projectUrl = this.project.websiteUrl;
-      this.previewFileUrl = this.project.previewFile?.path;
+      this.previewFileUrl = this.project.previewFile?.url;
     }
   }
 

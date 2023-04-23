@@ -1,0 +1,13 @@
+<section>
+  <h1>Gestion des documents</h1>
+  <div class="body">
+    <form class="doc_group" [formGroup]="cvForm" (submit)="onCVSubmit()">
+      <h3>C.V.</h3>
+      <div class="btn-group">
+        <button type="button" (click)="onChoseCVClick()">Choisir</button>
+        <button type="submit" [disabled]="!cvForm.valid">Envoyer</button>
+        <input type="file" style="height: 0; width: 0; visibility: hidden" #cvBrowser accept="application/pdf" (change)="onCVChange($event)" />
+      </div>
+    </form>
+  </div>
+</section>

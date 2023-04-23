@@ -21,7 +21,8 @@ export class SkillFormComponent {
 
   skillTypeOptions = [
     {label: "Frontend", value: "front"},
-    {label: "Backend", value: "back"}
+    {label: "Backend", value: "back"},
+    {label: "Divers", value: "misc"}
   ]
 
   private editMod: boolean;

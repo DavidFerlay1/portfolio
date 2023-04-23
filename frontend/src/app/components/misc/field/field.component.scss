@@ -37,6 +37,9 @@
     &.multiline {
       height: 250px;
       resize: none;
+      box-sizing: border-box;
+      padding: 8px;
+      font-family: Roboto;
     }
 
     &:not(:placeholder-shown), &:focus{

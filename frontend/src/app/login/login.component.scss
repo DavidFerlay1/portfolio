@@ -1,0 +1,18 @@
+.main {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  form {
+    width: 500px;
+    max-width: 90%;
+    position: relative;
+  }
+
+  a {
+    position: absolute;
+    top: 40px;
+    right: 0;
+  }
+}

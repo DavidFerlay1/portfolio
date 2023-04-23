@@ -1,4 +1,4 @@
 export interface FileInfo {
-  id: string,
-  path: string
+  id: number,
+  url: string
 }

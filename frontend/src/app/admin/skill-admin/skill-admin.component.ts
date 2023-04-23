@@ -27,7 +27,7 @@ export class SkillAdminComponent {
     this.selectedSkill = skill;
     const skillType = skill.type;
     const targetList = skillType === "front" ? this.frontSkillList : this.backSkillList;
-    const skillItem = targetList.find(item => item.nativeElement.id === skill.id)?.nativeElement;
+    const skillItem = targetList.find(item => Number(item.nativeElement.id) === skill.id)?.nativeElement;
 
     if(skillItem?.classList.contains('selected') && !refresh) {
       this.selectedSkill = undefined;
@@ -70,9 +70,6 @@ export class SkillAdminComponent {
   }
 
   deleteSkill(skill: Skill) {
-
-    console.log("delete")
-
     this.dialogService.confirmDialog({
       afterYes: () => {
         this.skillService.deleteSkill(skill).pipe(take(1)).subscribe(

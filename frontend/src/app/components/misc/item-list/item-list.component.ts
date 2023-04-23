@@ -58,7 +58,6 @@ export class ItemListComponent implements ControlValueAccessor{
     const index = this.items.indexOf(item);
     this.selectedIndex = index;
     this.writeValue(item);
-    console.log(this.selectedIndex, this.selectedItem)
   }
 
   avoidSelection() {

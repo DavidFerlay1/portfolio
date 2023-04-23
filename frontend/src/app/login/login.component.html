@@ -1,0 +1,10 @@
+<section class="main">
+  <form (submit)="login()" [formGroup]="formGroup">
+    <h1>Se connecter</h1>
+    <app-field label="E-mail" formControlName="username"></app-field>
+    <app-field label="Mot de passe" type="password" formControlName="password"></app-field>
+    <button type="submit">Connexion</button>
+
+    <a routerLink="">Retour à l'accueil</a>
+  </form>
+</section>

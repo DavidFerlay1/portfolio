@@ -9,7 +9,7 @@ import { Experience } from '../models/experience';
 })
 export class ExperienceService {
 
-  private baseUrl: string = "experience/"
+  private baseUrl: string = "experience"
   private _experiences: Experience[] = [];
 
   constructor(private http: HttpClient) {
@@ -28,7 +28,7 @@ export class ExperienceService {
   }
 
   delete(experience: Experience): Observable<void> {
-    return this.http.delete<void>(`${this.baseUrl}${experience.id}`);
+    return this.http.delete<void>(`${this.baseUrl}/${experience.id}`);
   }
 
   splice(experience: Experience) {

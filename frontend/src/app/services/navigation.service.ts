@@ -67,9 +67,8 @@ export class NavigationService {
 
   markCurrentAnchor(positionY: number) {
     const reversed = [...this.anchorsHtmlElements].reverse();
-    const itemPosition = reversed.indexOf(reversed.find((item: HTMLElement) => item.getBoundingClientRect().top <= positionY)!)
-    this.currentAnchorIndex = [...this.anchorsHtmlElements].reverse().indexOf(this.anchorsHtmlElements.find((item: HTMLElement) => item.getBoundingClientRect().top - positionY < 0)!);
-    console.log(itemPosition)
+    const itemPosition = reversed.filter((item: HTMLElement) => item.offsetTop -100 <= positionY).length - 1
+    this.currentAnchorIndex = itemPosition;
   }
 
 }

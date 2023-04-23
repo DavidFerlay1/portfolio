@@ -8,8 +8,9 @@
         <li *ngFor="let link of navLinks; let index = index" data-aos="fade" [attr.data-aos-delay]="index * 100" ><a (click)="onNavlinkClick(); navigationService.scrollTo(link.anchor)"><i [class]="link.icon"></i>{{link.label}}</a></li>
     </ul>
 
-    <div [attr.data-aos-delay]="(navLinks.length + 1) * 100" data-aos="fade">
-      <button>Télécharger CV</button>
+    <div [attr.data-aos-delay]="(navLinks.length + 1) * 100" data-aos="fade" style="display: flex; align-items: center">
+      <button (click)="fileService.downloadCV()">Télécharger CV</button>
+      <a class="logout" *ngIf="authService.authenticated" (click)="authService.logout()"><i class='fas fa-power-off'></i></a>
     </div>
 
   </nav>

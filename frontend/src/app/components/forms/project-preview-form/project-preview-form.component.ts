@@ -28,7 +28,6 @@ export class ProjectPreviewFormComponent {
   }
 
   onSelectedFileChange(event: any) {
-    console.log(event, event.target.files)
     if (event.target.files && event.target.files.length) {
       const file = event.target.files[0];
       this.readFile(file);

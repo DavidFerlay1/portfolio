@@ -4,6 +4,7 @@ import { take } from 'rxjs/operators';
 import { ProjectPreviewFormComponent } from 'src/app/components/forms/project-preview-form/project-preview-form.component';
 import { ItemListComponent } from 'src/app/components/misc/item-list/item-list.component';
 import { Project } from 'src/app/models/project';
+import { SafePipe } from 'src/app/pipes/safe.pipe';
 import { AppDialogService } from 'src/app/services/app-dialog.service';
 import { ProjectService } from 'src/app/services/project.service';
 import { ToastService } from 'src/app/services/toast.service';
@@ -31,7 +32,7 @@ export class ProjectAdminComponent implements OnInit {
     vip: new FormControl(false),
   })
 
-  constructor(public projectService: ProjectService, private dialogService: AppDialogService, private toastService: ToastService) { }
+  constructor(public projectService: ProjectService, private dialogService: AppDialogService, private toastService: ToastService, private safePipe: SafePipe) { }
 
   ngOnInit(): void {
   }
@@ -53,7 +54,6 @@ export class ProjectAdminComponent implements OnInit {
   }
 
   inputChange(event: any) {
-    console.log(event)
     this.formGroup.patchValue({
       previewFile: {id: null, file: event.target.files[0]},
     })
@@ -89,23 +89,20 @@ export class ProjectAdminComponent implements OnInit {
   }
 
   onImageClick() {
-    console.log(this.selectedProject?.previewFile)
-
     this.dialogService.open(ProjectPreviewFormComponent, "Ajouter une image", {
       file: this.fileInput.nativeElement.files ? this.fileInput.nativeElement.files[0] : null,
-      imgUrl: this.selectedProject?.previewFile ? this.selectedProject.previewFile.path : null,
+      imgUrl: this.selectedProject?.previewFile ? this.safePipe.transform(this.selectedProject.previewFile.url, 'resourceUrl') : null,
       onSave: this.onSaveImageClick.bind(this)
     })
   }
 
   onSaveImageClick(newFile: FileList) {
     this.fileInput.nativeElement.files = newFile;
-    console.log("new file", newFile, this.fileInput.nativeElement.files)
   }
 
   onSaveProjectClick() {
     const body = {
-      project: this.formGroup.value,
+      project: {...this.formGroup.value, id: this.selectedProject?.id || undefined},
       file: this.fileInput.nativeElement.files && this.fileInput.nativeElement.files.length ? this.fileInput.nativeElement.files[0] : null
     }
 

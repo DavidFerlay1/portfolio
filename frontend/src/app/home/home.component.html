@@ -1,4 +1,4 @@
-<span #anchor id="begin" style="position: absolute; top: 0; left: 0"></span>
+<span id="begin" style="position: absolute; top: 0; left: 0"></span>
 <section id="home" class="first">
 
   <div class="main_title">
@@ -17,26 +17,32 @@
 
   <!-- <app-field></app-field> -->
 
+  <div class="quick-review" data-aos="fade-in" data-aos-offset="0" data-aos-delay="1300">
+    <div class="quick-review-infos" #comments>
+        <app-comment #comment comment="Très bon développeur, à l'écoute des besoins et de bons conseils. Je recommande !" author="Ludovic Braud" author_function="Directeur de l'association Ouvre-Ton-Coeur" [rate]="4"></app-comment>
+        <app-comment #comment comment="Très bon développeur, à l'écoute des besoins et de bons conseils. Je recommande !" author="Ludovic Braud" author_function="Directeur de l'association Ouvre-Ton-Coeur" [rate]="4"></app-comment>
+    </div>
+    <div class="stylebar"></div>
+  </div>
+
+
 </section>
 
 <section id="review" #anchor class="nolimit">
   <h2 data-aos="fade-left"><span>01.</span>A propos</h2>
+
   <div class="resumeNav">
-    <span class="navLink active" #navLink (click)="onResumeNavLinkClick(0)">Services</span>
-    <span class="navLink" #navLink (click)="onResumeNavLinkClick(1)">Comp. front</span>
-    <span class="navLink" #navLink (click)="onResumeNavLinkClick(2)">Comp. back</span>
+    <span class="navLink active" #navLink (click)="onResumeNavLinkClick(0)">Front</span>
+    <span class="navLink" #navLink (click)="onResumeNavLinkClick(1)">Back</span>
+    <span class="navLink" #navLink (click)="onResumeNavLinkClick(2)">Divers</span>
+    <div class='category-underline' [ngClass]="{'second': navUnderlineIndex === 1, 'third': navUnderlineIndex === 2}"></div>
   </div>
   <div class="grid-wrapper">
+    <p class="overview" data-aos="zoom-in">
+      Développeur web depuis {{activityDuration}} ans et passionné par mon métier, toujours à l'écoute des opportunités et challenges du marché, je propose mes services afin de vous aider à créer le projet qui vous ressemble.<br/><br/>
+      Pour plus d'informations, n'hésitez pas à <a style="color: var(--green)" (click)="navigationService.scrollTo('contact')">me contacter</a>
+    </p>
     <div class="grid" #grid>
-      <div class="skill-list">
-        <h3 data-aos="fade">Services</h3>
-        <ul>
-          <li data-aos="fade-up" data-aos-delay="0">Site vitrine, E-commerce, ERP ...</li>
-          <li data-aos="fade-up" data-aos-delay="50">Devis gratuit</li>
-          <li data-aos="fade-up" data-aos-delay="100">Accompagnement et suivi</li>
-          <li data-aos="fade-up" data-aos-delay="150">Bonjour</li>
-        </ul>
-      </div>
 
       <div class="skill-list">
         <h3 data-aos="fade" data-aos-delay="350">Frontend</h3>
@@ -52,12 +58,19 @@
         </div>
       </div>
 
+      <div class="skill-list">
+        <h3 data-aos="fade" data-aos-delay="450">Divers</h3>
+        <div *ngFor="let skill of skillService.skillMap?.misc; let index = index" data-aos="fade-up" [attr.data-aos-delay]="(400 + 50 * (skillService.skillMap?.front!.length + skillService.skillMap?.back!.length)) + 50 * index">
+          <app-progress-bar [title]="skill.label" [percent]="skill.level"></app-progress-bar>
+        </div>
+      </div>
+
     </div>
   </div>
 
 </section>
 
-<section id="experiences" class="nolimit">
+<section id="experiences" class="nolimit" #anchor>
   <h2 data-aos="fade-left"><span>02.</span>Expérience</h2>
   <app-experience *ngFor="let exp of experienceService.experiences" data-aos="zoom-in"
     [title]="exp.title" [experience]="exp"></app-experience>
@@ -72,14 +85,14 @@
 
 </section>
 
-<section id="contact" class="nolimit">
+<section id="contact" class="nolimit" #anchor>
   <h2 data-aos="fade-left"><span>04.</span>Me contacter</h2>
   <div class="form-container" >
-    <form data-aos="zoom-in" data-aos-offset="200">
-      <app-field label="Adresse e-mail" formControlName="label"></app-field>
-      <app-field label="Objet" formControlName="level"></app-field>
-      <app-field [multiline]="true"></app-field>
-      <button type="submit" class="squared" placeholder="Entrez votre message">Envoyer</button>
+    <form data-aos="zoom-in" data-aos-offset="200" [formGroup]="emailFormGroup" (submit)="sendMail()">
+      <app-field label="Adresse e-mail" formControlName="username"></app-field>
+      <app-field label="Objet" formControlName="subject"></app-field>
+      <app-field [multiline]="true" formControlName="message"></app-field>
+      <button type="submit" class="squared" placeholder="Entrez votre message" [disabled]="!emailFormGroup.valid">Envoyer</button>
     </form>
   </div>
 

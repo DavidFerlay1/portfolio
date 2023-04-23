@@ -14,6 +14,12 @@
       </ul>
     </div>
 
+    <div>
+      <ul class="itemList">
+        <li *ngFor="let skill of skillService.skillMap?.misc" [ngClass]="{'selected':selectedSkill?.id === skill.id}" #backSkill (click)="selectSkill(skill)" [id]="skill.id">{{skill.label}} ({{skill.level}}%)</li>
+      </ul>
+    </div>
+
     <div class="button-grid">
       <button (click)="openFormDialog()">Nouveau</button>
       <button [disabled]="!selectedSkill" (click)="openFormDialog(true, selectedSkill)">Modifier</button>

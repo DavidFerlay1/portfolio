@@ -1,6 +1,6 @@
 <div class="field-group" [attr.data-aos]="dataAos" [attr.data-aos-delay]="dataAosDelay" [attr.data-aos-offset]="dataAosOffset">
   <input [type]="type" class="field" [disabled]="ignored" [spellcheck]="spellcheck" placeholder=" " *ngIf="!multiline" [value]="value" (input)="valueChange($event)" />
-  <textarea class="field multiline" (change)="valueChange($event)" *ngIf="multiline"></textarea>
+  <textarea class="field multiline" (change)="valueChange($event)" *ngIf="multiline" (input)="valueChange($event)"></textarea>
   <input *ngIf="ignorable" type="checkbox" [checked]="!ignored" (change)="onIgnore($event)" />
   <label *ngIf="label" [ngClass]="{'disabled': ignored}">{{label}}</label>
 </div>

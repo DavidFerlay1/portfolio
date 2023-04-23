@@ -1,0 +1,8 @@
+<div class="comment" #commentRef>
+  <span class="message">{{comment}}</span>
+  <div class="rate">
+    <i class="fas fa-star" *ngFor="let rate of rateArray"></i>
+    <i class="far fa-star" *ngFor="let rate of emptyRate"></i>
+  </div>
+  <span class="author">- {{author}}, <span class="author_function">{{author_function}}</span></span>
+</div>

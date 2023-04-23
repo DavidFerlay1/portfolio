@@ -9,7 +9,7 @@ import { Project } from '../models/project';
 })
 export class ProjectService {
 
-  private baseUrl = "project/";
+  private baseUrl = "project";
   private _projects: Project[] = [];
 
   constructor(private http: HttpClient) {
@@ -25,12 +25,11 @@ export class ProjectService {
     if(body.file)
       formData.append('file', body.file)
     formData.append('jsonProject', JSON.stringify(body.project));
-    console.log(formData.get('file'), formData.get('project'))
     return this.http.post<Project>(this.baseUrl, formData);
   }
 
   delete(project: Project) {
-    return this.http.delete(`${this.baseUrl}${project.id}`);
+    return this.http.delete(`${this.baseUrl}/${project.id}`);
   }
 
   splice(project: Project) {
